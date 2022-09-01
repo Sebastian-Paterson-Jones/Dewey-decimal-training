@@ -17,7 +17,7 @@ namespace ST10114615_PROG7312_POE_TASK_1.Controllers
         }
 
         // GET: Replacing
-        [HttpGet]
+        /*[HttpGet]
         public JsonResult GetReplacementBooks()
         {
             List<Book> BooksList = generateRandomBooks(10);
@@ -25,7 +25,7 @@ namespace ST10114615_PROG7312_POE_TASK_1.Controllers
             
 
             return BooksList;
-        }
+        }*/
 
         private List<Book> generateRandomBooks(int size)
         {
