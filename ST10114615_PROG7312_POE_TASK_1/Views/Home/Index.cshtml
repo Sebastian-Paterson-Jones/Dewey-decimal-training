@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Dewey Decimal Classification system.";
+}
+
+<style>
+    .home {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .home-head {
+        color: #d5d5d5;
+        max-width: 400px;
+        margin: 75px 0 0 0;
+    }
+    .home-options {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+    }
+    .home-options .card {
+        color: white;
+        background-color: #e27eff;
+        border-radius: 7.5px;
+        width: 300px;
+        height: 500px;
+        text-decoration: none;
+    }
+        .home-options .card:first-child {
+            background-color: #ff5d47;
+        }
+        .home-options .card:last-child {
+            background-color: #42ff7f;
+        }
+</style>
+
+<section class="home">
+    <div class="home-head">
+        <h1>Welcome to the dewey decimal classification training system.</h1>
+    </div>
+    <div class="home-options">
+        <a href="/Replacing" class="card">
+                <img src="~/Content/" alt="card image" />
+                <div class="card-text">
+                    <h4>Replacing books</h4>
+                    <p class="description">Replace books within the collection</p>
+                </div>
+        </a>
+        <div class="card">
+            <img src="~/Content/" alt="card image"/>
+            <div class="card-text">
+                <h4>Identifying areas</h4>
+                <p class="description">Find the area allocated for the book</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="~/Content/" alt="card image"/>
+            <div class="card-text">
+                <h4>Find call numbers</h4>
+                <p class="description">Find books call number</p>
+            </div>
+        </div>
+    </div>
+</section>

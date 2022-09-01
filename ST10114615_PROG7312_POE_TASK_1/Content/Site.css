@@ -1,0 +1,79 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+html {
+    height: 100vh;
+    overflow: auto;
+}
+
+body {
+    height: 100%;
+    background-color: #0e0e0e;
+}
+
+* {
+    font-family: 'Bree Serif', serif, Arial, Helvetica, sans-serif;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* set the default color */
+a, p, h1, h2, h3, h4, h5, h6 {
+    color: #d5d5d5;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0e0e0e;
+    border: none;
+    height: 60px;
+    padding: 25px 15px;
+}
+
+.navbar::before, .navbar::after  {
+    content: none;
+}
+
+.navbar .heading {
+    font-size: 22px;
+    margin: initial;
+}
+
+    .navbar .routes a {
+        font-size: 15px;
+        margin: 0 10px;
+    }
+
+    .navbar .control, .navbar .routes .control {
+        transition: transform 0.25s ease-in-out, color 0.25s ease-in-out;
+    }
+
+        .navbar .control:hover, .navbar .routes .control:hover {
+            transform: scale(1.025);
+            color: #e4e4e4;
+            cursor: pointer;
+        }
+
+.body-content {
+    padding: 50px 15px 15px 15px;
+    height: 100%;
+}
