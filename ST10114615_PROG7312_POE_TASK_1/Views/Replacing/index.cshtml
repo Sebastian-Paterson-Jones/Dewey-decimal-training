@@ -136,6 +136,7 @@
                 <span>:</span>
                 <span id="miliseconds"></span>
             </div>
+            <ul id="Books" class="books"></ul>
         </div>
     </div>
 </template>
@@ -186,6 +187,13 @@
 
         // start timer
         startTimer();
+
+        books = fetchRandomBooks();
+
+        for (const [key, value] of Object.entries(books)) {
+            
+        }
+
     }
 
     const showSuccessPage = () => {
@@ -224,6 +232,23 @@
         timeElem.classList.remove("active");
         clearInterval(timer);
     }
+
+    const fetchRandomBooks = async () => {
+        let books = {};
+
+        await fetch("/Replacing/GetReplacementBooks")
+            .then(resp => resp.json())
+            .then(data => books = data)
+            .catch(err => {
+                alert("Unable to pull book data");
+                console.error(err);
+                showStartPage();
+            });
+
+        return books;
+    }
+
+
 </script>
 
 

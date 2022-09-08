@@ -16,22 +16,20 @@ namespace ST10114615_PROG7312_POE_TASK_1.Controllers
             return View();
         }
 
-        // GET: Replacing
-        /*[HttpGet]
+        // GET: Replacing List
+        [HttpGet]
         public JsonResult GetReplacementBooks()
         {
             List<Book> BooksList = generateRandomBooks(10);
 
-            
-
-            return BooksList;
-        }*/
+            return Json(BooksList, JsonRequestBehavior.AllowGet);
+        }
 
         private List<Book> generateRandomBooks(int size)
         {
             List<Book> res = new List<Book>();
 
-            for(int i=0; i<10; i++)
+            for(int i=0; i<size; i++)
             {
                 res.Add(Book.generateRandomBook());
             }
