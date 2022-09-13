@@ -25,6 +25,13 @@ namespace ST10114615_PROG7312_POE_TASK_1.Controllers
             return Json(BooksList, JsonRequestBehavior.AllowGet);
         }
 
+        // POST: Validate order of call nums
+        [HttpPost]
+        public JsonResult validateCallOrder(List<Book> books)
+        {
+            return Json(true);
+        }
+
         private List<Book> generateRandomBooks(int size)
         {
             List<Book> res = new List<Book>();

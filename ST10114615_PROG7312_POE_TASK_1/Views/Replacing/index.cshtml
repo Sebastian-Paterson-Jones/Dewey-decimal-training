@@ -69,6 +69,7 @@
         .game-page .container {
             position: relative;
             display: flex;
+            height: 95%;
             flex-direction: column;
             align-items: center;
             padding-top: 25px;
@@ -91,37 +92,59 @@
 
 
         .game-page .books {
+            max-width: 650px;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             list-style-type: none;
             padding: 0;
+            overflow-y: auto;
         }
 
             .game-page .books .listItem {
                 max-width: 600px;
                 width: 100%;
-                height: 80px;
-                background: #c1cbd3;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
                 margin: 10px 0;
-                padding: 15px;
-                border-radius: 10px;
-                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
             }
 
-                .game-page .books .listItem.over {
-                    background: #a3a9ad;
+                .game-page .books .listItem .list-container {
+                    width: 100%;
+                    height: 80px;
+                    background: #c1cbd3;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 15px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    pointer-events: none;
+                    transition: background 0.1s ease-in-out;
                 }
 
-        .game-page .books .listItem > * {
-            color: black;
-        }
+                .game-page .books .listItem .list-container {
+                    pointer-events: none;
+                }
 
-    /* timer animation keyframes*/
+                .game-page .books .listItem .list-container > * {
+                    color: black;
+                    pointer-events: none;
+                }
+
+                .game-page .books .listItem.over .list-container {
+                    background: #989898;
+                }
+
+            .game-page .container .check-order {
+                padding: 10px 15px;
+                border-radius: 10px; 
+            }
+
+
+            /* timer animation keyframes*/
     @@keyframes bounce {
         0% { transform: scale(1); }
         50% { transform: scale(1.1); }
@@ -170,7 +193,7 @@
             <ul id="Books" class="books">
                 <!-- sorting books get placed here -->
             </ul>
-            <button class="check-order">Check order</button>
+            <button class="btn-primary check-order">Check order</button>
         </div>
     </div>
 </template>
@@ -191,6 +214,8 @@
     let books = [];
     // holds book html elements
     let bookItems = [];
+    // holds the drag start item
+    let dragStartItem = null;
     // holds the start index of drag events
     let dragStartIndex = 0;
 
@@ -229,9 +254,25 @@
         // fetch the collection of books
         books = await fetchRandomBooks();
 
+        hydrateItems();
+    }
+
+    const showSuccessPage = () => {
+        stopTimer();
+        const temp = document.getElementById("success-page");
+        const clon = temp.content.cloneNode(true);
+        const bod = document.getElementById("replacing");
+        bod.innerHTML = "";
+        bod.appendChild(clon);
+    }
+
+    const hydrateItems = () => {
+        const booksList = document.getElementById("Books");
+
+        booksList.innerHTML = "";
+
         for (const [key, value] of Object.entries(books)) {
             const listItem = document.createElement('li');
-            const booksList = document.getElementById("Books");
 
             listItem.setAttribute('data-index', key);
             listItem.setAttribute('draggable', true);
@@ -239,9 +280,11 @@
             listItem.classList.add("draggable");
 
             listItem.innerHTML = `
-                <h3 class="call-num">${value["callNumber"]}</h3>
-                <h4 class="author-firstname">${value["bookAuthorFirstName"]}</h4>
-                <h4 class="author-lastname">${value["bookAuthorLastName"]}</h4>
+                <div class="list-container">
+                    <h3 class="call-num">${value["callNumber"]}</h3>
+                    <h4 class="author-firstname">${value["bookAuthorFirstName"]}</h4>
+                    <h4 class="author-lastname">${value["bookAuthorLastName"]}</h4>
+                </div>
             `;
             bookItems.push(listItem);
             booksList.appendChild(listItem);
@@ -252,15 +295,6 @@
 
         // start timer
         startTimer();
-    }
-
-    const showSuccessPage = () => {
-        stopTimer();
-        const temp = document.getElementById("success-page");
-        const clon = temp.content.cloneNode(true);
-        const bod = document.getElementById("replacing");
-        bod.innerHTML = "";
-        bod.appendChild(clon);
     }
 
     const startTimer = () => {
@@ -323,7 +357,8 @@
     // drag event handlers
     const dragStart = (e) => {
         // console.log("Event: drag start");
-        dragStartIndex = e.target.closest('li').getAttribute('data-index');
+        dragStartItem = e.target.closest('li');
+        dragStartIndex = dragStartItem.getAttribute('data-index');
     }
     const dragOver = (e) => {
       //  console.log("Event: drag over");
@@ -332,7 +367,7 @@
     const dragDrop = (e) => {
         // console.log("Event: drag drop");
         const dragEndIndex = e.target.getAttribute('data-index');
-        swapBooks(dragStartIndex, dragEndIndex);
+        insertBook(dragStartIndex, dragEndIndex);
         e.target.classList.remove("over");
     }
     const dragEnter = (e) => {
@@ -345,15 +380,13 @@
     }
 
     // swaps book positions
-    const swapBooks = (startIndex, endIndex) => {
+    const insertBook = (startIndex, endIndex) => {
         const tempBook = books[endIndex];
-        const tempBookItem = bookItems[endIndex].innerHTML;
 
         books[endIndex] = books[startIndex];
         books[startIndex] = tempBook;
 
-        bookItems[endIndex].innerHTML = bookItems[startIndex].innerHTML;
-        bookItems[startIndex].innerHTML = tempBookItem;
+        hydrateItems();
     }
 </script>
 

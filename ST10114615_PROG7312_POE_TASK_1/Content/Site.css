@@ -47,6 +47,7 @@ a, p, h1, h2, h3, h4, h5, h6 {
     border: none;
     height: 60px;
     padding: 25px 15px;
+    z-index: 1000;
 }
 
 .navbar::before, .navbar::after  {
@@ -77,3 +78,25 @@ a, p, h1, h2, h3, h4, h5, h6 {
     padding: 50px 15px 15px 15px;
     height: 100%;
 }
+
+/* scroll bar overrrides */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #2b2b2b #0e0e0e;
+}
+
+    /* Works on Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+        width: 12px;
+        border-radius: 10px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: #0e0e0e;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #2b2b2b;
+        border-radius: 10px;
+        border: 2px solid #0e0e0e;
+    }
