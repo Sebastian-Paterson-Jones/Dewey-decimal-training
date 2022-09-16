@@ -193,7 +193,7 @@
             <ul id="Books" class="books">
                 <!-- sorting books get placed here -->
             </ul>
-            <button class="btn-primary check-order">Check order</button>
+            <button id="BtnCheckOrder" class="btn-primary check-order">Check order</button>
         </div>
     </div>
 </template>
@@ -255,6 +255,10 @@
         books = await fetchRandomBooks();
 
         hydrateItems();
+
+        document.getElementById("BtnCheckOrder").onclick = async (event) => {
+            await checkOrder();
+        }
     }
 
     const showSuccessPage = () => {
@@ -340,6 +344,29 @@
         return books;
     }
 
+    const checkOrder = async () => {
+
+        data = {}
+        data.books = books;
+        data.timestamp = miliseconds;
+
+        await fetch("/Replacing/ValidateCallOrder", {
+            method: 'POST',
+            mode: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(data)
+        })
+            .then(resp => resp.json())
+            .then(data => console.log(data))
+            .catch(err => {
+                alert("Unable to check book order, try again");
+                console.error(err);
+            })
+    }
+
     const addDragEventListeners = () => {
         const dragParent = document.getElementById("Books");
         const dragItems = document.querySelectorAll(".draggable");
@@ -356,26 +383,21 @@
 
     // drag event handlers
     const dragStart = (e) => {
-        // console.log("Event: drag start");
         dragStartItem = e.target.closest('li');
         dragStartIndex = dragStartItem.getAttribute('data-index');
     }
     const dragOver = (e) => {
-      //  console.log("Event: drag over");
         e.preventDefault();
     }
     const dragDrop = (e) => {
-        // console.log("Event: drag drop");
         const dragEndIndex = e.target.getAttribute('data-index');
         insertBook(dragStartIndex, dragEndIndex);
         e.target.classList.remove("over");
     }
     const dragEnter = (e) => {
-        //console.log("Event: drag enter");
         e.target.classList.add("over");
     }
     const dragLeave = (e) => {
-        //console.log("Event: drag leave");
         e.target.classList.remove("over");
     }
 

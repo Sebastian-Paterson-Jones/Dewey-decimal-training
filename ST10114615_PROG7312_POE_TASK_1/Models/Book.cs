@@ -61,5 +61,32 @@ namespace ST10114615_PROG7312_POE_TASK_1.Models
         {
             return rand.Next(1, range);
         }
+
+        public override string ToString()
+        {
+            return callNumber;
+        }
+
+        public static bool operator ==(Book left, Book right)
+        {
+            return left.ToString().Equals(right.ToString());
+        }
+
+        public static bool operator !=(Book left, Book right)
+        {
+            return !left.ToString().Equals(right.ToString());
+        }
+
+        public static bool operator <(Book left, Book right)
+        {
+            int test = String.Compare(left.ToString(), right.ToString(), comparisonType: StringComparison.Ordinal);
+            return test < 0;
+        }
+
+        public static bool operator >(Book left, Book right)
+        {
+            int test = String.Compare(left.ToString(), right.ToString(), comparisonType: StringComparison.Ordinal);
+            return test > 0;
+        }
     }
 }
