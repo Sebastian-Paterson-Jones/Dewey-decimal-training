@@ -7,6 +7,8 @@ namespace ST10114615_PROG7312_POE_TASK_1.Models
 {
     public class Book
     {
+        private static Random rand = new Random();
+
         public int bookID { get; set; }
         public string bookTitle { get; set; }
         public string bookAuthorLastName { get; set; }
@@ -47,7 +49,7 @@ namespace ST10114615_PROG7312_POE_TASK_1.Models
 
         private static int generateRandomClassNum()
         {
-            return (getRandomInt(10)-1 * 100) + getRandomInt(100)-1;
+            return ((getRandomInt(10)-1) * 100) + getRandomInt(100)-1;
         }
 
         private static int generateRandomSubjectNum()
@@ -57,8 +59,34 @@ namespace ST10114615_PROG7312_POE_TASK_1.Models
 
         private static int getRandomInt(int range)
         {
-            Random rand = new Random();
             return rand.Next(1, range);
+        }
+
+        public override string ToString()
+        {
+            return callNumber;
+        }
+
+        public static bool operator ==(Book left, Book right)
+        {
+            return left.ToString().Equals(right.ToString());
+        }
+
+        public static bool operator !=(Book left, Book right)
+        {
+            return !left.ToString().Equals(right.ToString());
+        }
+
+        public static bool operator <(Book left, Book right)
+        {
+            int test = String.Compare(left.ToString(), right.ToString(), comparisonType: StringComparison.Ordinal);
+            return test < 0;
+        }
+
+        public static bool operator >(Book left, Book right)
+        {
+            int test = String.Compare(left.ToString(), right.ToString(), comparisonType: StringComparison.Ordinal);
+            return test > 0;
         }
     }
 }

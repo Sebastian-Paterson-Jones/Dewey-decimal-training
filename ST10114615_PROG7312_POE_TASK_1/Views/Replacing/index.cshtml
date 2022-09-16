@@ -69,7 +69,9 @@
         .game-page .container {
             position: relative;
             display: flex;
-            justify-content: center;
+            height: 95%;
+            flex-direction: column;
+            align-items: center;
             padding-top: 25px;
         }
 
@@ -89,8 +91,60 @@
             }
 
 
+        .game-page .books {
+            max-width: 650px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style-type: none;
+            padding: 0;
+            overflow-y: auto;
+        }
 
-    /* timer animation keyframes*/
+            .game-page .books .listItem {
+                max-width: 600px;
+                width: 100%;
+                margin: 10px 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+            }
+
+                .game-page .books .listItem .list-container {
+                    width: 100%;
+                    height: 80px;
+                    background: #c1cbd3;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 15px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    pointer-events: none;
+                    transition: background 0.1s ease-in-out;
+                }
+
+                .game-page .books .listItem .list-container {
+                    pointer-events: none;
+                }
+
+                .game-page .books .listItem .list-container > * {
+                    color: black;
+                    pointer-events: none;
+                }
+
+                .game-page .books .listItem.over .list-container {
+                    background: #989898;
+                }
+
+            .game-page .container .check-order {
+                padding: 10px 15px;
+                border-radius: 10px; 
+            }
+
+
+            /* timer animation keyframes*/
     @@keyframes bounce {
         0% { transform: scale(1); }
         50% { transform: scale(1.1); }
@@ -136,6 +190,10 @@
                 <span>:</span>
                 <span id="miliseconds"></span>
             </div>
+            <ul id="Books" class="books">
+                <!-- sorting books get placed here -->
+            </ul>
+            <button id="BtnCheckOrder" class="btn-primary check-order">Check order</button>
         </div>
     </div>
 </template>
@@ -149,9 +207,17 @@
 <script>
 
     // interval timer
-    var timer;
+    let timer;
     // miliseconds times
-    var miliseconds = 0;
+    let miliseconds = 0;
+    // holds book object type
+    let books = [];
+    // holds book html elements
+    let bookItems = [];
+    // holds the drag start item
+    let dragStartItem = null;
+    // holds the start index of drag events
+    let dragStartIndex = 0;
 
 
     window.onload = (event) => {
@@ -177,15 +243,22 @@
         bod.appendChild(clon);
     }
 
-    const showGamePage = () => {
+    const showGamePage = async () => {
         const temp = document.getElementById("game-page");
         const clon = temp.content.cloneNode(true);
         const bod = document.getElementById("replacing");
+
         bod.innerHTML = "";
         bod.appendChild(clon);
 
-        // start timer
-        startTimer();
+        // fetch the collection of books
+        books = await fetchRandomBooks();
+
+        hydrateItems();
+
+        document.getElementById("BtnCheckOrder").onclick = async (event) => {
+            await checkOrder();
+        }
     }
 
     const showSuccessPage = () => {
@@ -195,6 +268,37 @@
         const bod = document.getElementById("replacing");
         bod.innerHTML = "";
         bod.appendChild(clon);
+    }
+
+    const hydrateItems = () => {
+        const booksList = document.getElementById("Books");
+
+        booksList.innerHTML = "";
+
+        for (const [key, value] of Object.entries(books)) {
+            const listItem = document.createElement('li');
+
+            listItem.setAttribute('data-index', key);
+            listItem.setAttribute('draggable', true);
+            listItem.classList.add("listItem");
+            listItem.classList.add("draggable");
+
+            listItem.innerHTML = `
+                <div class="list-container">
+                    <h3 class="call-num">${value["callNumber"]}</h3>
+                    <h4 class="author-firstname">${value["bookAuthorFirstName"]}</h4>
+                    <h4 class="author-lastname">${value["bookAuthorLastName"]}</h4>
+                </div>
+            `;
+            bookItems.push(listItem);
+            booksList.appendChild(listItem);
+        }
+
+        // add drag event listeners
+        addDragEventListeners();
+
+        // start timer
+        startTimer();
     }
 
     const startTimer = () => {
@@ -223,6 +327,88 @@
         const timeElem = document.getElementById("timer");
         timeElem.classList.remove("active");
         clearInterval(timer);
+    }
+
+    const fetchRandomBooks = async () => {
+        let books = {};
+
+        await fetch("/Replacing/GetReplacementBooks")
+            .then(resp => resp.json())
+            .then(data => books = data)
+            .catch(err => {
+                alert("Unable to pull book data");
+                console.error(err);
+                showStartPage();
+            });
+
+        return books;
+    }
+
+    const checkOrder = async () => {
+
+        data = {}
+        data.books = books;
+        data.timestamp = miliseconds;
+
+        await fetch("/Replacing/ValidateCallOrder", {
+            method: 'POST',
+            mode: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(data)
+        })
+            .then(resp => resp.json())
+            .then(data => console.log(data))
+            .catch(err => {
+                alert("Unable to check book order, try again");
+                console.error(err);
+            })
+    }
+
+    const addDragEventListeners = () => {
+        const dragParent = document.getElementById("Books");
+        const dragItems = document.querySelectorAll(".draggable");
+
+        dragParent.addEventListener('dragstart', dragStart);
+
+        dragItems.forEach(elem => {
+            elem.addEventListener('dragover', dragOver);
+            elem.addEventListener('drop', dragDrop);
+            elem.addEventListener('dragenter', dragEnter);
+            elem.addEventListener('dragleave', dragLeave);
+        });
+    }
+
+    // drag event handlers
+    const dragStart = (e) => {
+        dragStartItem = e.target.closest('li');
+        dragStartIndex = dragStartItem.getAttribute('data-index');
+    }
+    const dragOver = (e) => {
+        e.preventDefault();
+    }
+    const dragDrop = (e) => {
+        const dragEndIndex = e.target.getAttribute('data-index');
+        insertBook(dragStartIndex, dragEndIndex);
+        e.target.classList.remove("over");
+    }
+    const dragEnter = (e) => {
+        e.target.classList.add("over");
+    }
+    const dragLeave = (e) => {
+        e.target.classList.remove("over");
+    }
+
+    // swaps book positions
+    const insertBook = (startIndex, endIndex) => {
+        const tempBook = books[endIndex];
+
+        books[endIndex] = books[startIndex];
+        books[startIndex] = tempBook;
+
+        hydrateItems();
     }
 </script>
 
