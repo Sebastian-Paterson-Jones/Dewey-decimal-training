@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -57,6 +63,8 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -133,10 +141,32 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\DeweyDecimalEntitiyModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeweyDecimalEntitiyModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeweyDecimalEntitiyModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeweyDecimalEntitiyModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeweyDecimalEntitiyModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeweyDecimalEntitiyModels.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SortTime.cs">
+      <DependentUpon>DeweyDecimalEntitiyModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Sorting.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DeweyDecimalTraining.mdf" />
+    <Content Include="App_Data\DeweyDecimalTraining_log.ldf">
+      <DependentUpon>DeweyDecimalTraining.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -148,12 +178,29 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\DeweyDecimalEntitiyModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DeweyDecimalEntitiyModels.edmx</DependentUpon>
+      <LastGenOutput>DeweyDecimalEntitiyModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DeweyDecimalEntitiyModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DeweyDecimalEntitiyModels.edmx</DependentUpon>
+      <LastGenOutput>DeweyDecimalEntitiyModels.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\fonts\FontAwesome.otf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <EntityDeploy Include="Models\DeweyDecimalEntitiyModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DeweyDecimalEntitiyModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DeweyDecimalEntitiyModels.edmx.diagram">
+      <DependentUpon>DeweyDecimalEntitiyModels.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -180,7 +227,7 @@
     <Content Include="Views\Replacing\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

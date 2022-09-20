@@ -11,6 +11,10 @@ namespace ST10114615_PROG7312_POE_TASK_1.Controllers
 {
     public class ReplacingController : Controller
     {
+        // entity place holder
+        DeweyDecimalTrainingEntities1 entities;
+
+
         // GET: Replacing
         public ActionResult Index()
         {
@@ -31,6 +35,34 @@ namespace ST10114615_PROG7312_POE_TASK_1.Controllers
         public JsonResult ValidateCallOrder(List<Book> books, int timeStamp)
         {
             return Json(Sorting.isSorted(books));
+
+        }
+
+        // POST: submit sort time
+        [HttpPost]
+        public JsonResult submitTime(SortTime sortedTime)
+        {
+            Dictionary<string, string> resp = new Dictionary<string, string>();
+            int index;
+
+            using (entities = new DeweyDecimalTrainingEntities1())
+            { 
+                try
+                {
+                    entities.SortTimes.Add(sortedTime);
+                    entities.SaveChanges();
+                    index = entities.SortTimes.OrderBy(i => i.Time).ToList().IndexOf(sortedTime);
+                } catch
+                {
+                    resp.Add("msg", "an error occured while submittig time");
+                    return Json(resp);
+                }
+            }
+
+            resp.Add("msg", "successfully submitted time");
+            resp.Add("index", ""+(index+1));
+
+            return Json(resp);
         }
 
         private List<Book> generateRandomBooks(int size)
