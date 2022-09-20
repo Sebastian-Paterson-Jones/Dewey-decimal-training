@@ -1,0 +1,285 @@
+﻿.replacing {
+    height: 100%;
+    padding-top: 25px;
+}
+
+.start-page, .success-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    max-width: 300px;
+    width: 100%;
+    height: 500px;
+    border-radius: 15px;
+    background-color: #282828;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+    .card h3 {
+        margin-bottom: 25px;
+    }
+
+    .card .heading {
+        font-size: 24px;
+    }
+
+        .card .heading > span {
+            color: #d5d5d5;
+            font-size: 24px;
+        }
+
+    .card p {
+        width: 100%;
+        margin: 25px 0;
+        text-align: center;
+    }
+
+    .card button {
+        width: 100%;
+        max-width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        margin: auto;
+    }
+
+    .card .display-time-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center
+    }
+
+    .card .submit-time-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center
+    }
+
+        .card .submit-time-container .sub-heading {
+            color: #d5d5d5;
+        }
+
+        .card .submit-time-container .input {
+            margin-bottom: 25px;
+        }
+
+.game-page {
+    position: relative;
+    height: 100%;
+}
+
+    .game-page .btn-back {
+        width: 50px;
+        height: 40px;
+        background-color: #282828;
+        border-radius: 10px;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+        .game-page .btn-back:before {
+            color: #d5d5d5;
+        }
+
+    .game-page .container {
+        position: relative;
+        display: flex;
+        height: 95%;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 25px;
+    }
+
+        .game-page .container .timer {
+            width: max-content;
+        }
+
+    .game-page .timer.active {
+        animation: bounce 1s infinite;
+        -moz-animation: bounce 1s infinite;
+        -webkit-animation: bounce 1s infinite;
+    }
+
+    .game-page .timer.invalid {
+        animation: shake 0.5s infinite;
+        -moz-animation: shake 0.5s infinite;
+        -webkit-animation: shake 0.5s infinite;
+    }
+
+    .game-page .container .timer span {
+        color: #d5d5d5;
+        font-size: 40px;
+        transition: color 0.25s ease-in-out;
+    }
+
+    .game-page .container .timer.invalid span {
+        color: #ff2c2c;
+    }
+
+    .game-page .container .sub-heading {
+        opacity: 0;
+        color: #ff2c2c;
+        transition: opacity 0.25s ease-in-out;
+    }
+
+    .game-page .container .timer.invalid + .sub-heading {
+        opacity: 1;
+    }
+
+    .game-page .books {
+        max-width: 650px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+        overflow-y: auto;
+    }
+
+        .game-page .books .listItem {
+            max-width: 600px;
+            width: 100%;
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+        }
+
+            .game-page .books .listItem .list-container {
+                width: 100%;
+                height: 80px;
+                background: #c1cbd3;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px;
+                border-radius: 10px;
+                cursor: pointer;
+                pointer-events: none;
+                transition: background 0.1s ease-in-out;
+            }
+
+            .game-page .books .listItem .list-container {
+                pointer-events: none;
+            }
+
+                .game-page .books .listItem .list-container > * {
+                    color: black;
+                    pointer-events: none;
+                }
+
+            .game-page .books .listItem.over .list-container {
+                background: #989898;
+            }
+
+    .game-page .container .check-order {
+        padding: 10px 15px;
+        border-radius: 10px;
+    }
+
+
+/* timer animation keyframes*/
+@@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@@-moz-keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@@-webkit-keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@@keyframes shake {
+    0% {
+        transform: translateX(-20px);
+    }
+
+    50% {
+        transform: translateX(40px);
+    }
+
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+@@-moz-keyframes shake {
+    0% {
+        transform: translateX(-20px);
+    }
+
+    50% {
+        transform: translateX(40px);
+    }
+
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+@@-webkit-keyframes shake {
+    0% {
+        transform: translateX(-20px);
+    }
+
+    50% {
+        transform: translateX(40px);
+    }
+
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+/*confetti effect styles*/
+.confetti {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    user-select: none;
+}
