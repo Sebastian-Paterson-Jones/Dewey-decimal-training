@@ -190,7 +190,7 @@
 
 
 /* timer animation keyframes*/
-@@keyframes bounce {
+@keyframes bounce {
     0% {
         transform: scale(1);
     }
@@ -204,7 +204,7 @@
     }
 }
 
-@@-moz-keyframes bounce {
+@-moz-keyframes bounce {
     0% {
         transform: scale(1);
     }
@@ -218,7 +218,7 @@
     }
 }
 
-@@-webkit-keyframes bounce {
+@-webkit-keyframes bounce {
     0% {
         transform: scale(1);
     }
@@ -232,7 +232,7 @@
     }
 }
 
-@@keyframes shake {
+@keyframes shake {
     0% {
         transform: translateX(-20px);
     }
@@ -246,7 +246,7 @@
     }
 }
 
-@@-moz-keyframes shake {
+@-moz-keyframes shake {
     0% {
         transform: translateX(-20px);
     }
@@ -260,7 +260,7 @@
     }
 }
 
-@@-webkit-keyframes shake {
+@-webkit-keyframes shake {
     0% {
         transform: translateX(-20px);
     }
