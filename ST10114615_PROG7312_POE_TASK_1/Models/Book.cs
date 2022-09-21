@@ -13,8 +13,8 @@ namespace ST10114615_PROG7312_POE_TASK_1.Models
         public string bookTitle { get; set; }
         public string bookAuthorLastName { get; set; }
         public string bookAuthorFirstName { get; set; }
-        public int classNum { get; set; }
-        public int subjectNum { get; set; }
+        public string classNum { get; set; }
+        public string subjectNum { get; set; }
         public string callNumber { get; set; }
 
         public static Book generateRandomBook()
@@ -47,14 +47,14 @@ namespace ST10114615_PROG7312_POE_TASK_1.Models
             return firstnames[getRandomInt(9) - 1];
         }
 
-        private static int generateRandomClassNum()
+        private static string generateRandomClassNum()
         {
-            return ((getRandomInt(10)-1) * 100) + getRandomInt(100)-1;
+            return $"{getRandomInt(10)-1}{getRandomInt(10) - 1}{getRandomInt(10) - 1}";
         }
 
-        private static int generateRandomSubjectNum()
+        private static string generateRandomSubjectNum()
         {
-            return getRandomInt(10000)-1;
+            return $"{getRandomInt(10) - 1}{getRandomInt(10) - 1}{getRandomInt(10) - 1}{getRandomInt(10) - 1}";
         }
 
         private static int getRandomInt(int range)
