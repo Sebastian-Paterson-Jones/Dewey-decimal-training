@@ -1,15 +1,16 @@
-﻿@{
-    ViewBag.Title = "Dewey Decimal Classification system - replacing.";
+﻿
+@{
+    ViewBag.Title = "Searching training";
 }
 
-@section Styles 
+@section Styles
 {
     <link href="@Url.Content("~/Content/Replacing.css")" rel="stylesheet" type="text/css" />
 }
 
-@section Scripts
+@section Scripts 
 {
-    <script src="@Url.Content("~/Scripts/Replacing.js")"></script>
+    <script src="@Url.Content("~/Content/Searching.js")" ></script>    
 }
 
 <script>
@@ -18,20 +19,19 @@
         currTemplate.getElementById("BtnStartGame").onclick = (event) => {
             showGamePage();
         };
-        document.getElementById("replacing").appendChild(currTemplate);
+        document.getElementById("searching").appendChild(currTemplate);
     };
 </script>
 
-
-<section id="replacing" class="replacing">
+<section id="searching" class="searching">
     <!-- Loaded template goes here -->
 </section>
 
 <template id="start-page">
     <div class="start-page">
         <div class="card">
-            <h3 class="heading">Welcome to the dewey decimal replacing training.</h3>
-            <p class="sub-heading">In this training you will be timed to rearrage the elements in ascending order</p>
+            <h3 class="heading">Welcome to the dewey decimal searching training.</h3>
+            <p class="sub-heading">In this training you will be timed to match the top level dewey decimal categories with their descriptions</p>
             <p class="sub-heading">When you are ready, select start</p>
             <button id="BtnStartGame" class="btn-primary">Start</button>
         </div>
@@ -50,13 +50,19 @@
                 <span id="miliseconds"></span>
             </div>
             <p class="sub-heading">Incorrect order</p>
-            <ul id="Books" class="books">
-                <!-- categories and descriptions get placed here -->
-            </ul>
-            <button id="BtnCheckOrder" class="btn-primary check-order">Check order</button>
+            <div class="categories">
+                <ul id="CategoryLeft" class="category-list">
+                    <!-- left side categories or descriptions go here  -->
+                </ul>
+                <ul id="CategoryRight" class="category-list">
+                    <!-- right side categories or descriptions go here -->
+                </ul>
+            </div>
+            <button id="BtnNext" class="btn-primary btn-next">Next</button>
         </div>
     </div>
 </template>
+
 
 <template id="success-page">
     <canvas class="confetti" id="canvas"></canvas>
@@ -78,11 +84,18 @@
             </div>
             <div id="DisplayTime" class="display-time-container" style="display: none">
                 <p class="sub-heading">You ranked:</p>
-                <p id="Score" class="heading">
+                <p id="Rank" class="heading">
                     <!-- Rank goes here -->
+                </p>
+            </div>
+            <div id="ScoreRank" class="score-rank-container" style="display: none">
+                <p class="sub-heading">You scored:</p>
+                <p id="ScoreCorrect" class="heading">
+                    <!-- Num correct goes here -->
                 </p>
             </div>
             <button id="BtnStartGame" class="btn-primary">Retry</button>
         </div>
     </div>
 </template>
+
