@@ -411,7 +411,7 @@ const scoreAndDisplayNext = async () => {
 
 const showScore = (data) => {
     console.log(data);
-    document.getElementById("Score").innerHTML = data.index;
+    document.getElementById("Rank").innerHTML = data.index;
 
     document.getElementById("DisplayTime").style.display = "block";
     document.getElementById("SubmitTime").style.display = "none";
