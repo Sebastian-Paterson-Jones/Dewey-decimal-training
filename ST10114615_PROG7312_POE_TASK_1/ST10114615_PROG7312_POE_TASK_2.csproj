@@ -179,6 +179,7 @@
     <Content Include="Content\fontawesome\font-awesome.css" />
     <Content Include="Content\fontawesome\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\book.svg" />
     <Content Include="Content\Leaderboard.css" />
     <Content Include="Content\Replacing.css" />
     <Content Include="favicon.ico" />
