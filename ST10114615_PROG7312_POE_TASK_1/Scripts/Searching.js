@@ -2,21 +2,40 @@
 let timer;
 // miliseconds times
 let miliseconds = 0;
-// holds book object type
-let books = [];
-// holds book html elements
-let bookItems = [];
+// holds categories object type
+const categories = {
+    "000": "Computer Science, Information, & General Works",
+    "100": "Philosophy & Psychology",
+    "200": "Religion",
+    "300": "Social Sciences",
+    "400": "Language",
+    "500": "Science",
+    "600": "Technology",
+    "700": "Arts & Recreation",
+    "800": "Literature",
+    "900": "History & Geography"
+};
+// derranged categories
+let derrangedCategories = {};
+// holds category html elements
+let categoryItems = [];
 // holds the drag start item
 let dragStartItem = null;
 // holds the start index of drag events
 let dragStartIndex = 0;
+// holds # correct scores
+let score = 0;
+// holds user performance score
+let performanceScore = 0;
+// hold the current page #
+let page = 0;
 
 const showStartPage = () => {
     stopTimer();
     miliseconds = 0;
     const temp = document.getElementById("start-page");
     const clon = temp.content.cloneNode(true);
-    const bod = document.getElementById("replacing");
+    const bod = document.getElementById("searching");
 
     clon.getElementById("BtnStartGame").onclick = (event) => {
         showGamePage();
@@ -29,21 +48,23 @@ const showStartPage = () => {
 const showGamePage = async () => {
     const temp = document.getElementById("game-page");
     const clon = temp.content.cloneNode(true);
-    const bod = document.getElementById("replacing");
+    const bod = document.getElementById("searching");
+
+    page = 0;
+    score = 0;
 
     bod.innerHTML = "";
     bod.appendChild(clon);
 
-    // fetch the collection of books
-    books = await fetchRandomBooks();
+    derrangedCategories = derangeCategories();
 
     hydrateItems();
 
     // start timer
     startTimer();
 
-    document.getElementById("BtnCheckOrder").onclick = async (event) => {
-        await checkOrder();
+    document.getElementById("BtnNext").onclick = async (event) => {
+        await scoreAndDisplayNext();
     }
 }
 
@@ -51,19 +72,23 @@ const showSuccessPage = () => {
     stopTimer();
     const temp = document.getElementById("success-page");
     const clon = temp.content.cloneNode(true);
-    const bod = document.getElementById("replacing");
+    const bod = document.getElementById("searching");
 
     bod.innerHTML = "";
     bod.appendChild(clon);
 
-    document.getElementById("BtnSubmit").onclick = async (event) => {
-        await submit();
+    document.getElementById("BtnSubmitScore").onclick = async (event) => {
+        await submitScore();
     }
 
     document.getElementById("BtnStartGame").onclick = () => {
         showStartPage();
     }
 
+    // set performance score
+    performanceScore = parseInt(((score * score) / 16) * (10000 / miliseconds) * 100);
+
+    // display time
     const milis = document.getElementById("miliseconds");
     const seconds = document.getElementById("seconds");
     const minutes = document.getElementById("minutes");
@@ -71,6 +96,13 @@ const showSuccessPage = () => {
     milis.innerHTML = pad(miliseconds % 100);
     seconds.innerHTML = pad(parseInt(miliseconds / 100, 10) % 60);
     minutes.innerHTML = pad(parseInt(miliseconds / 6000, 10));
+
+    // display number of correct answers
+    const correctScoresElem = document.getElementById("NumCorrect");
+    const performanceScoreElem = document.getElementById("Score");
+
+    correctScoresElem.innerHTML = `You got <b>${score}/16</b> answers correct`;
+    performanceScoreElem.innerHTML = `${performanceScore}`;
 
     //----------Resize confetti----------
     window.addEventListener('resize', function () {
@@ -87,8 +119,8 @@ const showSuccessPage = () => {
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    const cx = ctx.canvas.width / 2;
-    const cy = ctx.canvas.height / 2;
+    let cx = ctx.canvas.width / 2;
+    let cy = ctx.canvas.height / 2;
 
     let confetti = [];
     const confettiCount = 300;
@@ -196,27 +228,46 @@ const showSuccessPage = () => {
 }
 
 const hydrateItems = () => {
-    const booksList = document.getElementById("Books");
+    const LeftCategories = document.getElementById("CategoryLeft");
+    const RightCategories = document.getElementById("CategoryRight");
 
-    booksList.innerHTML = "";
+    LeftCategories.innerHTML = "";
+    RightCategories.innerHTML = "";
 
-    for (const [key, value] of Object.entries(books)) {
-        const listItem = document.createElement('li');
+    for (let i = 0; i < 7; i++) {
+        const objectKey = Object.keys(derrangedCategories)[i];
+        const objectVal = derrangedCategories[objectKey];
 
-        listItem.setAttribute('data-index', key);
-        listItem.setAttribute('draggable', true);
-        listItem.classList.add("listItem");
-        listItem.classList.add("draggable");
+        const leftListItem = document.createElement('li');
+        const rightListItem = document.createElement('li');
 
-        listItem.innerHTML = `
-                <div class="list-container">
-                    <h3 class="call-num">${value["callNumber"]}</h3>
-                    <h4 class="author-firstname">${value["bookAuthorFirstName"]}</h4>
-                    <h4 class="author-lastname">${value["bookAuthorLastName"]}</h4>
-                </div>
-            `;
-        bookItems.push(listItem);
-        booksList.appendChild(listItem);
+        rightListItem.setAttribute('data-index', objectKey);
+
+        rightListItem.setAttribute('draggable', true);
+        rightListItem.classList.add("draggable");
+
+        leftListItem.classList.add("listItem");
+        rightListItem.classList.add("listItem");
+
+        if (i > 3) {
+            leftListItem.style.display = 'none';
+        }
+        
+        leftListItem.innerHTML = `
+            <div class="list-container">
+                <h3 class="call-num">${objectKey}</h3>
+            </div>
+        `;
+
+        rightListItem.innerHTML = `
+            <div class="list-container">
+                <h3 class="call-num">${objectVal}</h3>
+            </div>
+        `;
+
+        categoryItems.push(rightListItem);
+        LeftCategories.appendChild(leftListItem);
+        RightCategories.appendChild(rightListItem);
     }
 
     // add drag event listeners
@@ -251,22 +302,45 @@ const stopTimer = () => {
     clearInterval(timer);
 }
 
-const fetchRandomBooks = async () => {
-    let books = {};
+const derangeCategories = () => {
+    let arrangedKeys = Object.keys(categories);
+    let arrangedValues = Object.values(categories);
+    let derrangedKeys = {};
 
-    await fetch("/Replacing/GetReplacementBooks")
-        .then(resp => resp.json())
-        .then(data => books = data)
-        .catch(err => {
-            alert("Unable to pull book data");
-            console.error(err);
-            showStartPage();
-        });
+    // select 7 random values
+    let tempKeys = [];
+    let tempValues = [];
+    for (let i = 0; i < 7; i++) {
+        const randIndexKey = Math.floor(Math.random() * arrangedKeys.length);
+        const randKey = arrangedKeys.splice(randIndexKey, 1);
+        const randValue = arrangedValues.splice(randIndexKey, 1);
 
-    return books;
+        // mix and match columns
+        if (Math.random() * 2 > 1) {
+            tempKeys.push(randValue);
+            tempValues.push(randKey);
+        } else {
+            tempKeys.push(randKey)
+            tempValues.push(randValue);
+        }
+    }
+    arrangedKeys = tempKeys;
+    arrangedValues = tempValues;
+
+    // derrange keys and values
+    for (let i = 0; i < 7; i++) {
+        const randIndexKey = Math.floor(Math.random() * arrangedKeys.length);
+        const randIndexValue = Math.floor(Math.random() * arrangedKeys.length);
+        const randKey = arrangedKeys.splice(randIndexKey, 1);
+        const randVal = arrangedValues.splice(randIndexValue, 1);
+
+        derrangedKeys[randKey] = randVal;
+    }
+
+    return derrangedKeys;
 }
 
-const submit = async () => {
+const submitScore = async () => {
     const userName = document.getElementById("Name").value;
 
     if (userName.length > 0) {
@@ -274,15 +348,16 @@ const submit = async () => {
 
         data.Name = userName;
         data.Time = miliseconds;
+        data.Correct = score;
+        data.Score = performanceScore;
 
-        console.log(data);
-
-        await fetch("/Replacing/submitTime", {
+        await fetch("/Searching/submitScore", {
             method: 'POST',
             mode: 'same-origin',
             headers: {
                 'Content-Type': 'application/json'
             },
+            accept: 'application/json',
             credentials: 'include',
             body: JSON.stringify(data)
         })
@@ -295,12 +370,19 @@ const submit = async () => {
     }
 }
 
-const checkOrder = async () => {
+const scoreAndDisplayNext = async () => {
     let data = {};
-    data.books = books;
-    data.timestamp = miliseconds;
+    data.calls = {};
+    const callKeys = Object.keys(derrangedCategories);
 
-    await fetch("/Replacing/ValidateCallOrder", {
+    // populate the call key values
+    for (let i = 0; i < 4; i++) {
+        const tempKey = callKeys[i];
+        const tempVal = derrangedCategories[tempKey];
+        data.calls[tempKey] = tempVal[0][0];
+    }
+
+    await fetch("/Searching/validateCallCorrectness", {
         method: 'POST',
         mode: 'same-origin',
         headers: {
@@ -310,14 +392,25 @@ const checkOrder = async () => {
         body: JSON.stringify(data)
     })
         .then(resp => resp.json())
-        .then(data => data ? showSuccessPage() : showIncorrectOrder())
+        .then(data => {
+            score += data;
+            if (page < 3) {
+                page += 1;
+                document.getElementById("ProgressBar").style.width = `${(page + 1) * 25}%`;
+                derrangedCategories = derangeCategories();
+                hydrateItems();
+            } else {
+                showSuccessPage();
+            }
+        })
         .catch(err => {
-            alert("Unable to check book order, try again");
+            alert("Unable to score order, try again");
             console.error(err);
         });
 }
 
 const showScore = (data) => {
+    console.log(data);
     document.getElementById("Score").innerHTML = data.index;
 
     document.getElementById("DisplayTime").style.display = "block";
@@ -325,7 +418,7 @@ const showScore = (data) => {
 }
 
 const addDragEventListeners = () => {
-    const dragParent = document.getElementById("Books");
+    const dragParent = document.getElementById("CategoryRight");
     const dragItems = document.querySelectorAll(".draggable");
 
     dragParent.addEventListener('dragstart', dragStart);
@@ -354,7 +447,7 @@ const dragOver = (e) => {
 }
 const dragDrop = (e) => {
     const dragEndIndex = e.target.getAttribute('data-index');
-    insertBook(dragStartIndex, dragEndIndex);
+    swapValues(dragStartIndex, dragEndIndex);
     e.target.classList.remove("over");
 }
 const dragEnter = (e) => {
@@ -365,11 +458,11 @@ const dragLeave = (e) => {
 }
 
 // swaps book positions
-const insertBook = (startIndex, endIndex) => {
-    const tempBook = books[endIndex];
+const swapValues = (startIndex, endIndex) => {
+    const tempCategory = derrangedCategories[endIndex];
 
-    books[endIndex] = books[startIndex];
-    books[startIndex] = tempBook;
+    derrangedCategories[endIndex] = derrangedCategories[startIndex];
+    derrangedCategories[startIndex] = tempCategory;
 
     hydrateItems();
 }

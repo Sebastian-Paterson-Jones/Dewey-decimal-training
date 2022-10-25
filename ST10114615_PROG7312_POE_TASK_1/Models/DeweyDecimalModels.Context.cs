@@ -13,10 +13,10 @@ namespace ST10114615_PROG7312_POE_TASK_1.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DeweyDecimalTrainingEntities1 : DbContext
+    public partial class DeweyDecimalTrainingEntities2 : DbContext
     {
-        public DeweyDecimalTrainingEntities1()
-            : base("name=DeweyDecimalTrainingEntities1")
+        public DeweyDecimalTrainingEntities2()
+            : base("name=DeweyDecimalTrainingEntities2")
         {
         }
     
@@ -25,6 +25,7 @@ namespace ST10114615_PROG7312_POE_TASK_1.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<IdentifyScore> IdentifyScores { get; set; }
         public virtual DbSet<SortTime> SortTimes { get; set; }
     }
 }

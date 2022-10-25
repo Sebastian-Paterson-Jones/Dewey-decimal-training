@@ -1,4 +1,4 @@
-﻿.replacing {
+﻿.replacing, .searching {
     height: 100%;
     padding-top: 25px;
 }
@@ -14,7 +14,7 @@
 .card {
     max-width: 300px;
     width: 100%;
-    height: 500px;
+    min-height: 500px;
     border-radius: 15px;
     background-color: #282828;
     display: flex;
@@ -47,7 +47,7 @@
         max-width: 150px;
         height: 50px;
         border-radius: 10px;
-        margin: auto;
+        margin: 15px auto;
     }
 
     .card .display-time-container {
@@ -132,8 +132,29 @@
         transition: opacity 0.25s ease-in-out;
     }
 
+    .game-page .container .progress-container {
+        max-width: 650px;
+        width: 100%;
+        height: 7.5px;
+        background: #454545;
+        overflow: hidden;
+        border-radius: 100vw;
+        margin: 15px 0;
+    }
+
+    .game-page .container .progress-container .progress-bar {
+        width: 25%;
+    }
+
     .game-page .container .timer.invalid + .sub-heading {
         opacity: 1;
+    }
+
+    .game-page .categories {
+        max-width: 650px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
     .game-page .books {
@@ -147,7 +168,12 @@
         overflow-y: auto;
     }
 
-        .game-page .books .listItem {
+    .game-page ul {
+        list-style-type: none;
+        padding: 0 10px;
+    }
+
+        .game-page .listItem {
             max-width: 600px;
             width: 100%;
             margin: 10px 0;
@@ -156,7 +182,7 @@
             justify-content: end;
         }
 
-            .game-page .books .listItem .list-container {
+            .game-page .listItem .list-container {
                 width: 100%;
                 height: 80px;
                 background: #c1cbd3;
@@ -170,25 +196,27 @@
                 transition: background 0.1s ease-in-out;
             }
 
-            .game-page .books .listItem .list-container {
+            .game-page .listItem .list-container {
                 pointer-events: none;
             }
 
-                .game-page .books .listItem .list-container > * {
+                .game-page .listItem .list-container > * {
                     color: black;
                     pointer-events: none;
                 }
 
-            .game-page .books .listItem.over .list-container {
+            .game-page .listItem.over .list-container {
                 background: #989898;
             }
 
-    .game-page .container .check-order {
+    .game-page .container .check-order, .game-page .container .btn-next {
         padding: 10px 15px;
         border-radius: 10px;
     }
 
-
+.success-page .card .score h4, .success-page .card .score h3 {
+    text-align: center;
+}
 /* timer animation keyframes*/
 @keyframes bounce {
     0% {

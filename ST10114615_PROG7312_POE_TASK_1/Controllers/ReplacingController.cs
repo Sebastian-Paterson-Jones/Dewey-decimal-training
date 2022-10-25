@@ -12,7 +12,7 @@ namespace ST10114615_PROG7312_POE_TASK_1.Controllers
     public class ReplacingController : Controller
     {
         // entity place holder
-        DeweyDecimalTrainingEntities1 entities;
+        DeweyDecimalTrainingEntities2 entities;
 
 
         // GET: Replacing
@@ -21,9 +21,20 @@ namespace ST10114615_PROG7312_POE_TASK_1.Controllers
             return View();
         }
 
+        // GET: Replacing/leaderboard
+        public ActionResult leaderBoard()
+        {
+            List<SortTime> sortList;
+            using (entities = new DeweyDecimalTrainingEntities2())
+            {
+                sortList = entities.SortTimes.OrderByDescending(score => score.Time).ToList();
+            }
+            return View(sortList);
+        }
+
         // GET: Replacing List
         [HttpGet]
-        public JsonResult GetReplacementBooks()
+        public JsonResult getReplacementBooks()
         {
             List<Book> BooksList = generateRandomBooks(10);
 
@@ -32,7 +43,7 @@ namespace ST10114615_PROG7312_POE_TASK_1.Controllers
 
         // POST: Validate order of call nums
         [HttpPost]
-        public JsonResult ValidateCallOrder(List<Book> books, int timeStamp)
+        public JsonResult validateCallOrder(List<Book> books, int timeStamp)
         {
             return Json(Sorting.isSorted(books));
 
@@ -45,7 +56,7 @@ namespace ST10114615_PROG7312_POE_TASK_1.Controllers
             Dictionary<string, string> resp = new Dictionary<string, string>();
             int index;
 
-            using (entities = new DeweyDecimalTrainingEntities1())
+            using (entities = new DeweyDecimalTrainingEntities2())
             { 
                 try
                 {

@@ -1,0 +1,24 @@
+﻿.leaderboard-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 50px;
+}
+
+.heading {
+    margin-bottom: 75px;
+}
+
+.table {
+    max-width: 1000px;
+}
+
+th, td {
+    color: white;
+    border-top: none !important;
+}
+
+.table-striped.table-dark > tbody > tr:nth-of-type(odd) {
+    background-color: #2e2e2e;
+}

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ST10114615_PROG7312_POE_TASK_1.Models.IdentifyScore>
+
+@{
+    ViewBag.Title = "leaderboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles
+{
+    <link href="@Url.Content("~/Content/Leaderboard.css")" rel="stylesheet" type="text/css" />
+}
+
+<section class="leaderboard-section">
+    <h2 class="heading">Identifying areas leaderboard</h2>
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Time</th>
+                <th>Correct</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                        <span>ms</span>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Correct)
+                        <span>/16</span>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Score)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
