@@ -3,15 +3,32 @@ let timer;
 // miliseconds times
 let miliseconds = 0;
 // holds categories object type
-let categories = {};
+const categories = {
+    "000": "Computer Science, Information, & General Works",
+    "100": "Philosophy & Psychology",
+    "200": "Religion",
+    "300": "Social Sciences",
+    "400": "Language",
+    "500": "Science",
+    "600": "Technology",
+    "700": "Arts & Recreation",
+    "800": "Literature",
+    "900": "History & Geography"
+};
 // derranged categories
-const derrangedCategories = {};
+let derrangedCategories = {};
 // holds category html elements
 let categoryItems = [];
 // holds the drag start item
 let dragStartItem = null;
 // holds the start index of drag events
 let dragStartIndex = 0;
+// holds # correct scores
+let score = 0;
+// holds user performance score
+let performanceScore = 0;
+// hold the current page #
+let page = 0;
 
 const showStartPage = () => {
     stopTimer();
@@ -33,6 +50,9 @@ const showGamePage = async () => {
     const clon = temp.content.cloneNode(true);
     const bod = document.getElementById("searching");
 
+    page = 0;
+    score = 0;
+
     bod.innerHTML = "";
     bod.appendChild(clon);
 
@@ -44,7 +64,7 @@ const showGamePage = async () => {
     startTimer();
 
     document.getElementById("BtnNext").onclick = async (event) => {
-        await checkOrder();
+        await scoreAndDisplayNext();
     }
 }
 
@@ -65,6 +85,10 @@ const showSuccessPage = () => {
         showStartPage();
     }
 
+    // set performance score
+    performanceScore = parseInt(((score * score) / 16) * (10000 / miliseconds) * 100);
+
+    // display time
     const milis = document.getElementById("miliseconds");
     const seconds = document.getElementById("seconds");
     const minutes = document.getElementById("minutes");
@@ -72,6 +96,13 @@ const showSuccessPage = () => {
     milis.innerHTML = pad(miliseconds % 100);
     seconds.innerHTML = pad(parseInt(miliseconds / 100, 10) % 60);
     minutes.innerHTML = pad(parseInt(miliseconds / 6000, 10));
+
+    // display number of correct answers
+    const correctScoresElem = document.getElementById("NumCorrect");
+    const performanceScoreElem = document.getElementById("Score");
+
+    correctScoresElem.innerHTML = `You got <b>${score}/16</b> answers correct`;
+    performanceScoreElem.innerHTML = `${performanceScore}`;
 
     //----------Resize confetti----------
     window.addEventListener('resize', function () {
@@ -88,8 +119,8 @@ const showSuccessPage = () => {
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    const cx = ctx.canvas.width / 2;
-    const cy = ctx.canvas.height / 2;
+    let cx = ctx.canvas.width / 2;
+    let cy = ctx.canvas.height / 2;
 
     let confetti = [];
     const confettiCount = 300;
@@ -198,13 +229,13 @@ const showSuccessPage = () => {
 
 const hydrateItems = () => {
     const LeftCategories = document.getElementById("CategoryLeft");
-    const RightCategories = document.getElementById("CategoriesRight");
+    const RightCategories = document.getElementById("CategoryRight");
 
     LeftCategories.innerHTML = "";
     RightCategories.innerHTML = "";
 
     for (let i = 0; i < 7; i++) {
-        const objectKey = derrangedCategories.keys()[i];
+        const objectKey = Object.keys(derrangedCategories)[i];
         const objectVal = derrangedCategories[objectKey];
 
         const leftListItem = document.createElement('li');
@@ -234,9 +265,9 @@ const hydrateItems = () => {
             </div>
         `;
 
-        LeftCategories.push(leftListItem);
-        RightCategories.push(rightListItem);
-        categoriesList.appendChild(rightListItem);
+        categoryItems.push(rightListItem);
+        LeftCategories.appendChild(leftListItem);
+        RightCategories.appendChild(rightListItem);
     }
 
     // add drag event listeners
@@ -272,22 +303,38 @@ const stopTimer = () => {
 }
 
 const derangeCategories = () => {
-    const arrangedKeys = categories.keys();
-    const arrangedValues = categories.values();
-    const derrangedKeys = {};
+    let arrangedKeys = Object.keys(categories);
+    let arrangedValues = Object.values(categories);
+    let derrangedKeys = {};
 
-    for (let i = 0; i < arrangedKeys.length; i++) {
-        const randIndexKey = Math.floor(Math.random() * arrangedKeys.length));
-        const randIndexValue = Math.floor(Math.random() * arrangedKeys.length));
+    // select 7 random values
+    let tempKeys = [];
+    let tempValues = [];
+    for (let i = 0; i < 7; i++) {
+        const randIndexKey = Math.floor(Math.random() * arrangedKeys.length);
         const randKey = arrangedKeys.splice(randIndexKey, 1);
-        const randVal = arrangedValues.splice(randIndexValue, 1);
+        const randValue = arrangedValues.splice(randIndexKey, 1);
 
         // mix and match columns
         if (Math.random() * 2 > 1) {
-            derrangedKeys[randKey] = randVal;
+            tempKeys.push(randValue);
+            tempValues.push(randKey);
         } else {
-            derrangedKeys[randVal] = randKey;
+            tempKeys.push(randKey)
+            tempValues.push(randValue);
         }
+    }
+    arrangedKeys = tempKeys;
+    arrangedValues = tempValues;
+
+    // derrange keys and values
+    for (let i = 0; i < 7; i++) {
+        const randIndexKey = Math.floor(Math.random() * arrangedKeys.length);
+        const randIndexValue = Math.floor(Math.random() * arrangedKeys.length);
+        const randKey = arrangedKeys.splice(randIndexKey, 1);
+        const randVal = arrangedValues.splice(randIndexValue, 1);
+
+        derrangedKeys[randKey] = randVal;
     }
 
     return derrangedKeys;
@@ -301,13 +348,16 @@ const submitScore = async () => {
 
         data.Name = userName;
         data.Time = miliseconds;
+        data.Correct = score;
+        data.Score = performanceScore;
 
-        await fetch("/Replacing/submitTime", {
+        await fetch("/Searching/submitScore", {
             method: 'POST',
             mode: 'same-origin',
             headers: {
                 'Content-Type': 'application/json'
             },
+            accept: 'application/json',
             credentials: 'include',
             body: JSON.stringify(data)
         })
@@ -320,12 +370,19 @@ const submitScore = async () => {
     }
 }
 
-const checkOrder = async () => {
+const scoreAndDisplayNext = async () => {
     let data = {};
-    data.books = books;
-    data.timestamp = miliseconds;
+    data.calls = {};
+    const callKeys = Object.keys(derrangedCategories);
 
-    await fetch("/Replacing/ValidateCallOrder", {
+    // populate the call key values
+    for (let i = 0; i < 4; i++) {
+        const tempKey = callKeys[i];
+        const tempVal = derrangedCategories[tempKey];
+        data.calls[tempKey] = tempVal[0][0];
+    }
+
+    await fetch("/Searching/validateCallCorrectness", {
         method: 'POST',
         mode: 'same-origin',
         headers: {
@@ -335,14 +392,25 @@ const checkOrder = async () => {
         body: JSON.stringify(data)
     })
         .then(resp => resp.json())
-        .then(data => data ? showSuccessPage() : showIncorrectOrder())
+        .then(data => {
+            score += data;
+            if (page < 3) {
+                page += 1;
+                document.getElementById("ProgressBar").style.width = `${(page + 1) * 25}%`;
+                derrangedCategories = derangeCategories();
+                hydrateItems();
+            } else {
+                showSuccessPage();
+            }
+        })
         .catch(err => {
-            alert("Unable to check book order, try again");
+            alert("Unable to score order, try again");
             console.error(err);
         });
 }
 
 const showScore = (data) => {
+    console.log(data);
     document.getElementById("Score").innerHTML = data.index;
 
     document.getElementById("DisplayTime").style.display = "block";

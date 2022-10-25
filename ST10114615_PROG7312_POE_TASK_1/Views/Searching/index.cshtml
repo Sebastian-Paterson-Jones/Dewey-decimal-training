@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Searching training";
 }
 
@@ -8,9 +7,9 @@
     <link href="@Url.Content("~/Content/Replacing.css")" rel="stylesheet" type="text/css" />
 }
 
-@section Scripts 
+@section Scripts
 {
-    <script src="@Url.Content("~/Content/Searching.js")" ></script>    
+    <script src="@Url.Content("~/Scripts/Searching.js")" ></script>    
 }
 
 <script>
@@ -31,7 +30,7 @@
     <div class="start-page">
         <div class="card">
             <h3 class="heading">Welcome to the dewey decimal searching training.</h3>
-            <p class="sub-heading">In this training you will be timed to match the top level dewey decimal categories with their descriptions</p>
+            <p class="sub-heading">In this training you will be timed to match the top level dewey decimal categories with their descriptions. Drag and drop to match the rows in the right column with their respective match</p>
             <p class="sub-heading">When you are ready, select start</p>
             <button id="BtnStartGame" class="btn-primary">Start</button>
         </div>
@@ -49,7 +48,9 @@
                 <span>:</span>
                 <span id="miliseconds"></span>
             </div>
-            <p class="sub-heading">Incorrect order</p>
+            <div class="progress-container">
+                <div id="ProgressBar" class="progress-bar"></div>
+            </div>
             <div class="categories">
                 <ul id="CategoryLeft" class="category-list">
                     <!-- left side categories or descriptions go here  -->
@@ -76,8 +77,13 @@
                 <span>:</span>
                 <span id="miliseconds"></span>
             </div>
+            <div class="score">
+                <h4 id="NumCorrect"></h4>
+                <h4> Your final score was</h4>
+                <h3 id="Score"></h3>
+            </div>
             <div id="SubmitTime" class="submit-time-container">
-                <p class="sub-heading">Submit your time and see how you compared to others</p>
+                <p class="sub-heading">Submit your time and score and see how you compare to others</p>
                 <label id="NameLbl" for="Name" class="sub-heading">Enter your name</label>
                 <input id="Name" type="text" class="input" />
                 <button id="BtnSubmitScore" class="btn-primary">Submit</button>

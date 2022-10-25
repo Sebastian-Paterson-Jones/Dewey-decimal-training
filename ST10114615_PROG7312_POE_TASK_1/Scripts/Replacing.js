@@ -56,8 +56,8 @@ const showSuccessPage = () => {
     bod.innerHTML = "";
     bod.appendChild(clon);
 
-    document.getElementById("BtnSubmitScore").onclick = async (event) => {
-        await submitScore();
+    document.getElementById("BtnSubmit").onclick = async (event) => {
+        await submit();
     }
 
     document.getElementById("BtnStartGame").onclick = () => {
@@ -266,7 +266,7 @@ const fetchRandomBooks = async () => {
     return books;
 }
 
-const submitScore = async () => {
+const submit = async () => {
     const userName = document.getElementById("Name").value;
 
     if (userName.length > 0) {
@@ -274,6 +274,8 @@ const submitScore = async () => {
 
         data.Name = userName;
         data.Time = miliseconds;
+
+        console.log(data);
 
         await fetch("/Replacing/submitTime", {
             method: 'POST',

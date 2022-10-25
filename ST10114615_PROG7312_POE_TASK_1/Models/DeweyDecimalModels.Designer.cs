@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\sebastian\Desktop\Prog assignment\ST10114615_PROG7312_POE_TASK_1\Models\DeweyDecimalEntitiyModels.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\sebastian\OneDrive - Varsity College\Third_year\PROG\Semester 2\ST10114615_PROG7312_POE_TASK_1\Models\DeweyDecimalModels.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
