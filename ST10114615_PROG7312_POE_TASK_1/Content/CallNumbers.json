@@ -1,0 +1,1175 @@
+﻿{
+  "number": "Root",
+  "description":  "Root node",
+  "children": [
+    {
+      "number": "000",
+      "description": "Computer science, information, general works",
+      "children": [
+        {
+          "number": "000",
+          "description": "Computer science, information, general works",
+          "children": [
+            {
+              "number": "001",
+              "description": "Knowledge",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "010",
+          "description": "Bibliography",
+          "children": [
+            {
+              "number": "011",
+              "description": "Bibliographies and catalogues",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "020",
+          "description": "Library and information sciences",
+          "children": [
+            {
+              "number": "021",
+              "description": "Relationships of libraries and archives",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "030",
+          "description": "General encyclopaedic works",
+          "children": [
+            {
+              "number": "031",
+              "description": "General encyclopaedic works in American English",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "050",
+          "description": "General serial publications",
+          "children": [
+            {
+              "number": "051",
+              "description": "General serial publications in American English",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "060",
+          "description": "General organizations & museum science",
+          "children": [
+            {
+              "number": "061",
+              "description": "General organizations in North America",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "070",
+          "description": "Documentary, educational, news media; journalism",
+          "children": [
+            {
+              "number": "071",
+              "description": "Journalism and newspapers in North America",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "080",
+          "description": "General collections",
+          "children": [
+            {
+              "number": "081",
+              "description": "General collections in American English",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "090",
+          "description": "Manuscripts and rare books",
+          "children": [
+            {
+              "number": "091",
+              "description": "Manuscripts",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "100",
+      "description": "Philosophy & psychology",
+      "children": [
+        {
+          "number": "100",
+          "description": "Philosophy & psychology",
+          "children": [
+            {
+              "number": "101",
+              "description": "Theory of philosophy",
+              "children": []
+            },
+            {
+              "number": "102",
+              "description": "Miscellany of philosophy",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "110",
+          "description": "Metaphysics",
+          "children": [
+            {
+              "number": "111",
+              "description": "Ontology",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "120",
+          "description": "Epistemology, causation, humankind",
+          "children": [
+            {
+              "number": "121",
+              "description": "Epistemology (Theory of knowledge)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "130",
+          "description": "Parapsychology and occultism",
+          "children": [
+            {
+              "number": "131",
+              "description": "Parapsychological and occult methods",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "140",
+          "description": "Specific philosophical schools",
+          "children": [
+            {
+              "number": "141",
+              "description": "Idealism and related systems",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "150",
+          "description": "Psychology",
+          "children": [
+            {
+              "number": "151",
+              "description": "Perception, movement, emotions & drives",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "160",
+          "description": "Philosophical logic",
+          "children": [
+            {
+              "number": "161",
+              "description": "Induction",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "170",
+          "description": "Ethics (Moral philosophy)",
+          "children": [
+            {
+              "number": "171",
+              "description": "Ethical systems",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "180",
+          "description": "Ancient, medieval & eastern philosophy",
+          "children": [
+            {
+              "number": "181",
+              "description": "Eastern philosophy",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "190",
+          "description": "Modern western philosophy",
+          "children": [
+            {
+              "number": "191",
+              "description": "Philosophy of United States and Canada",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "200",
+      "description": "Religion",
+      "children": [
+        {
+          "number": "200",
+          "description": "Religion",
+          "children": [
+            {
+              "number": "201",
+              "description": "Religious mythology & social theology",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "210",
+          "description": "Philosophy and theory of religion",
+          "children": [
+            {
+              "number": "211",
+              "description": "Concepts of God",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "220",
+          "description": "Bible",
+          "children": [
+            {
+              "number": "221",
+              "description": "Old Testament (Tanakh)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "230",
+          "description": "Christianity",
+          "children": [
+            {
+              "number": "231",
+              "description": "God",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "240",
+          "description": "Christian moral and devotional theology",
+          "children": [
+            {
+              "number": "241",
+              "description": "Christian ethics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "250",
+          "description": "Local Christian church and religious orders",
+          "children": [
+            {
+              "number": "251",
+              "description": "Preaching (Homiletics)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "260",
+          "description": "Christian social and ecclesiastical theology",
+          "children": [
+            {
+              "number": "261",
+              "description": "Social theology and interreligious relations",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "270",
+          "description": "History, geographic treatment, biography",
+          "children": [
+            {
+              "number": "271",
+              "description": "Religious orders in church history",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "280",
+          "description": "Denominations & sects of Christian church",
+          "children": [
+            {
+              "number": "281",
+              "description": "Early church and Eastern churches",
+              "children": []
+            },
+            {
+              "number": "282",
+              "description": "Roman Catholic Church",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "290",
+          "description": "Other religions",
+          "children": [
+            {
+              "number": "292",
+              "description": "Classical religion (Greek & Roman religion)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "300",
+      "description": "Social sciences",
+      "children": [
+        {
+          "number": "300",
+          "description": "Social sciences",
+          "children": [
+            {
+              "number": "301",
+              "description": "Sociology and anthropology",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "310",
+          "description": "Collections of general statistics",
+          "children": [
+            {
+              "number": "314",
+              "description": "General statistics of Europe",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "320",
+          "description": "Political science (Politics and government)",
+          "children": [
+            {
+              "number": "321",
+              "description": "Systems of governments and states",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "330",
+          "description": "Economics",
+          "children": [
+            {
+              "number": "331",
+              "description": "Labour economics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "340",
+          "description": "Law",
+          "children": [
+            {
+              "number": "341",
+              "description": "Law of nations",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "350",
+          "description": "Public administration and military science",
+          "children": [
+            {
+              "number": "351",
+              "description": "Public administration",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "360",
+          "description": "Social problems and services; associations",
+          "children": [
+            {
+              "number": "361",
+              "description": "Social problems and services",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "370",
+          "description": "Education",
+          "children": [
+            {
+              "number": "371",
+              "description": "Schools and their activities; special education",
+              "children": []
+            },
+            {
+              "number": "372",
+              "description": "Primary education (Elementary education)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "380",
+          "description": "Commerce, communications, transportation",
+          "children": [
+            {
+              "number": "381",
+              "description": "Commerce (Trade)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "390",
+          "description": "Customs, etiquette, folklore",
+          "children": [
+            {
+              "number": "391",
+              "description": "Costume and personal appearance",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "400",
+      "description": "Language",
+      "children": [
+        {
+          "number": "400",
+          "description": "Language",
+          "children": [
+            {
+              "number": "401",
+              "description": "Philosophy and theory; international languages",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "410",
+          "description": "Linguistics",
+          "children": [
+            {
+              "number": "411",
+              "description": "Writing systems",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "420",
+          "description": "English & Old English (Anglo-Saxon)",
+          "children": [
+            {
+              "number": "421",
+              "description": "Writing system, phonology, phonetics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "430",
+          "description": "German and related languages",
+          "children": [
+            {
+              "number": "431",
+              "description": "Writing system, phonology, phonetics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "440",
+          "description": "French & related Romance languages",
+          "children": [
+            {
+              "number": "441",
+              "description": "Writing system, phonology, phonetics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "450",
+          "description": "Italian, Romanian & related languages",
+          "children": [
+            {
+              "number": "451",
+              "description": "Writing system, phonology, phonetics",
+              "children": []
+            },
+            {
+              "number": "452",
+              "description": "Etymology of standard Italian",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "460",
+          "description": "Spanish, Portuguese, Galician",
+          "children": [
+            {
+              "number": "461",
+              "description": "Writing system, phonology, phonetics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "470",
+          "description": "Latin and related Italic languages",
+          "children": [
+            {
+              "number": "471",
+              "description": "Writing system, phonology, phonetics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "480",
+          "description": "Classical Greek; Hellenic languages",
+          "children": [
+            {
+              "number": "481",
+              "description": "Writing system, phonology, phonetics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "490",
+          "description": "Other languages",
+          "children": [
+            {
+              "number": "491",
+              "description": "East Indo-European and Celtic languages",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "500",
+      "description": "Natural sciences and mathematics",
+      "children": [
+        {
+          "number": "500",
+          "description": "Natural sciences and mathematics",
+          "children": [
+            {
+              "number": "501",
+              "description": "Philosophy and theory",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "510",
+          "description": "Mathematics",
+          "children": [
+            {
+              "number": "511",
+              "description": "General principles of mathematics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "520",
+          "description": "Astronomy and allied sciences",
+          "children": [
+            {
+              "number": "521",
+              "description": "Celestial mechanics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "530",
+          "description": "Physics",
+          "children": [
+            {
+              "number": "531",
+              "description": "Classical mechanics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "540",
+          "description": "Chemistry and allied sciences",
+          "children": [
+            {
+              "number": "541",
+              "description": "Physical chemistry",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "550",
+          "description": "Earth sciences",
+          "children": [
+            {
+              "number": "551",
+              "description": "Geology, hydrology, meteorology",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "560",
+          "description": "Palaeontology",
+          "children": [
+            {
+              "number": "561",
+              "description": "Palaeobotany; fossil microorganisms",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "570",
+          "description": "Biology",
+          "children": [
+            {
+              "number": "571",
+              "description": "Physiology & related subjects",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "580",
+          "description": "Plants",
+          "children": [
+            {
+              "number": "581",
+              "description": "Specific topics in natural history of plants",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "590",
+          "description": "Animals",
+          "children": [
+            {
+              "number": "591",
+              "description": "Specific topics in natural history of animals",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "600",
+      "description": "Technology (Applied sciences)",
+      "children": [
+        {
+          "number": "600",
+          "description": "Technology (Applied sciences)",
+          "children": [
+            {
+              "number": "601",
+              "description": "Philosophy and theory",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "610",
+          "description": "Medicine and health",
+          "children": [
+            {
+              "number": "611",
+              "description": "Human anatomy, cytology, histology",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "620",
+          "description": "Engineering and allied operations",
+          "children": [
+            {
+              "number": "621",
+              "description": "Applied physics",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "630",
+          "description": "Agriculture and related technologies",
+          "children": [
+            {
+              "number": "631",
+              "description": "Techniques, equipment & materials",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "640",
+          "description": "Home and family management",
+          "children": [
+            {
+              "number": "641",
+              "description": "Food and drink",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "650",
+          "description": "Management and auxiliary services",
+          "children": [
+            {
+              "number": "651",
+              "description": "Office services",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "660",
+          "description": "Chemical engineering",
+          "children": [
+            {
+              "number": "661",
+              "description": "Technology of industrial chemicals",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "670",
+          "description": "Manufacturing",
+          "children": [
+            {
+              "number": "671",
+              "description": "Metalworking & primary metal products",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "680",
+          "description": "Manufacture of products for specific uses",
+          "children": [
+            {
+              "number": "681",
+              "description": "Precision instruments and other devices",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "690",
+          "description": "Construction of buildings",
+          "children": [
+            {
+              "number": "691",
+              "description": "Building materials",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "700",
+      "description": "The arts",
+      "children": [
+        {
+          "number": "700",
+          "description": "The arts",
+          "children": [
+            {
+              "number": "701",
+              "description": "Philosophy of fine & decorative arts",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "710",
+          "description": "Area planning and landscape architecture Area",
+          "children": [
+            {
+              "number": "711",
+              "description": "planning (Civic art)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "720",
+          "description": "Architecture",
+          "children": [
+            {
+              "number": "721",
+              "description": "Architectural materials and structure",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "730",
+          "description": "Sculpture and related arts",
+          "children": [
+            {
+              "number": "731",
+              "description": "Processes, forms, subjects of sculpture",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "740",
+          "description": "Design and related arts",
+          "children": [
+            {
+              "number": "741",
+              "description": "Drawing and drawings",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "750",
+          "description": "Painting and paintings",
+          "children": [
+            {
+              "number": "751",
+              "description": "Techniques, equipment, materials & forms",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "760",
+          "description": "Printmaking & prints",
+          "children": [
+            {
+              "number": "761",
+              "description": "Relief processes (Block printing)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "770",
+          "description": "Photography, computer art, cinematography",
+          "children": [
+            {
+              "number": "771",
+              "description": "Techniques, equipment & materials",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "780",
+          "description": "Music",
+          "children": [
+            {
+              "number": "781",
+              "description": "General principles and musical forms",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "790",
+          "description": "Recreational and performing arts",
+          "children": [
+            {
+              "number": "791",
+              "description": "Public performances",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "800",
+      "description": "Literature (Belles-lettres) and rhetoric",
+      "children": [
+        {
+          "number": "800",
+          "description": "Literature (Belles-lettres) and rhetoric",
+          "children": [
+            {
+              "number": "801",
+              "description": "Philosophy and theory",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "810",
+          "description": "American literature in English",
+          "children": [
+            {
+              "number": "811",
+              "description": "American poetry in English",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "820",
+          "description": "English & Old English literatures",
+          "children": [
+            {
+              "number": "821",
+              "description": "English poetry",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "830",
+          "description": "German & related literatures",
+          "children": [
+            {
+              "number": "831",
+              "description": "German poetry",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "840",
+          "description": "French and related literatures",
+          "children": [
+            {
+              "number": "841",
+              "description": "French poetry",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "850",
+          "description": "Italian, Romanian & related literatures",
+          "children": [
+            {
+              "number": "851",
+              "description": "Italian poetry",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "860",
+          "description": "Spanish & Portuguese literatures",
+          "children": [
+            {
+              "number": "861",
+              "description": "Spanish poetry",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "870",
+          "description": "Latin & related Italic literatures",
+          "children": [
+            {
+              "number": "871",
+              "description": "Latin poetry",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "880",
+          "description": "Classical Greek & Hellenic literatures",
+          "children": [
+            {
+              "number": "881",
+              "description": "Classical Greek poetry",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "890",
+          "description": "Literatures of other languages",
+          "children": [
+            {
+              "number": "891",
+              "description": "East Indo-European and Celtic literatures",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "900",
+      "description": "History & geography",
+      "children": [
+        {
+          "number": "900",
+          "description": "History & geography",
+          "children": [
+            {
+              "number": "901",
+              "description": "Philosophy and theory of history",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "910",
+          "description": "Geography and travel",
+          "children": [
+            {
+              "number": "911",
+              "description": "Historical geography",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "920",
+          "description": "Biography, genealogy, insignia",
+          "children": [
+            {
+              "number": "929",
+              "description": "Genealogy, names & insignia",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "930",
+          "description": "History of ancient world to ca. 499",
+          "children": [
+            {
+              "number": "931",
+              "description": "China to 420",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "940",
+          "description": "History of Europe",
+          "children": [
+            {
+              "number": "941",
+              "description": "British Isles",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "950",
+          "description": "History of Asia",
+          "children": [
+            {
+              "number": "951",
+              "description": "China and adjacent areas",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "960",
+          "description": "History of Africa",
+          "children": [
+            {
+              "number": "961",
+              "description": "Tunisia and Libya",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "970",
+          "description": "History of North America",
+          "children": [
+            {
+              "number": "971",
+              "description": "Canada",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "980",
+          "description": "History of South America",
+          "children": [
+            {
+              "number": "981",
+              "description": "Brazil",
+              "children": []
+            }
+          ]
+        },
+        {
+          "number": "990",
+          "description": "History of other areas",
+          "children": [
+            {
+              "number": "994",
+              "description": "Australia",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+  ]
+}

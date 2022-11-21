@@ -27,5 +27,6 @@ namespace ST10114615_PROG7312_POE_TASK_1.Models
     
         public virtual DbSet<IdentifyScore> IdentifyScores { get; set; }
         public virtual DbSet<SortTime> SortTimes { get; set; }
+        public virtual DbSet<FindingScore> FindingScores { get; set; }
     }
 }
