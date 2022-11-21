@@ -29,4 +29,13 @@ CREATE TABLE [dbo].[IdentifyScore] (
     [Score]   INT           NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+CREATE TABLE [dbo].[FindingScore] (
+    [Id]      INT           IDENTITY (1, 1) NOT NULL,
+    [Time]    INT           NOT NULL,
+    [Name]    VARCHAR (255) NOT NULL,
+    [Correct] INT           NOT NULL,
+    [Score]   INT           NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
 ```
