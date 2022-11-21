@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ST10114615_PROG7312_POE_TASK_1.Utils
 {
-    class DeweyTree
+    public class DeweyTree
     {
         public string number;
         public string description;
@@ -17,12 +17,7 @@ namespace ST10114615_PROG7312_POE_TASK_1.Utils
         {
             this.number = number;
             this.description = description;
-            this.children = new List();
-        }
-
-        public void AddChild(string number, string description)
-        {
-            children.add(new DeweyTree(number, description));
+            this.children = new List<DeweyTree>();
         }
     }
 }

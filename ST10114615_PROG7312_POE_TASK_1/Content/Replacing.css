@@ -1,4 +1,4 @@
-﻿.replacing, .searching {
+﻿.replacing, .searching, .finding {
     height: 100%;
     padding-top: 25px;
 }
@@ -144,18 +144,51 @@
 
     .game-page .container .progress-container .progress-bar {
         width: 25%;
+        height: 100%;
     }
 
     .game-page .container .timer.invalid + .sub-heading {
         opacity: 1;
     }
 
-    .game-page .categories {
-        max-width: 650px;
+    .game-page .container .question-container {
+        background: #c1cbd3;
+        padding: 15px 25px;
+        border-radius: 7.5px;
+        margin-bottom: 15px;
+        max-width: 400px;
         width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
     }
+
+    .game-page .container .title {
+        color: black;
+        text-align: center;
+    }
+
+    .game-page .answers {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .game-page .answers .question-container {
+        cursor: pointer;
+        transition: background 0.5s ease;
+    }
+
+    .game-page .answers .question-container.invalid {
+        background: #ff5555;
+    }
+    
+    .game-page .answers .question-container.success {
+        background: #67f89f;
+    }
+
+        .game-page .categories {
+            max-width: 650px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
 
     .game-page .books {
         max-width: 650px;

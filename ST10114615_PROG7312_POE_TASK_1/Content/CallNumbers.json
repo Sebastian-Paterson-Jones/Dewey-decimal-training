@@ -1,5 +1,7 @@
 ﻿{
-  "categories": [
+  "number": "Root",
+  "description":  "Root node",
+  "children": [
     {
       "number": "000",
       "description": "Computer science, information, general works",
@@ -10,7 +12,8 @@
           "children": [
             {
               "number": "001",
-              "description": "Knowledge"
+              "description": "Knowledge",
+              "children": []
             }
           ]
         },
@@ -20,7 +23,8 @@
           "children": [
             {
               "number": "011",
-              "description": "Bibliographies and catalogues"
+              "description": "Bibliographies and catalogues",
+              "children": []
             }
           ]
         },
@@ -30,7 +34,8 @@
           "children": [
             {
               "number": "021",
-              "description": "Relationships of libraries and archives"
+              "description": "Relationships of libraries and archives",
+              "children": []
             }
           ]
         },
@@ -40,7 +45,8 @@
           "children": [
             {
               "number": "031",
-              "description": "General encyclopaedic works in American English"
+              "description": "General encyclopaedic works in American English",
+              "children": []
             }
           ]
         },
@@ -50,7 +56,8 @@
           "children": [
             {
               "number": "051",
-              "description": "General serial publications in American English"
+              "description": "General serial publications in American English",
+              "children": []
             }
           ]
         },
@@ -60,7 +67,8 @@
           "children": [
             {
               "number": "061",
-              "description": "General organizations in North America"
+              "description": "General organizations in North America",
+              "children": []
             }
           ]
         },
@@ -70,7 +78,8 @@
           "children": [
             {
               "number": "071",
-              "description": "Journalism and newspapers in North America"
+              "description": "Journalism and newspapers in North America",
+              "children": []
             }
           ]
         },
@@ -80,7 +89,8 @@
           "children": [
             {
               "number": "081",
-              "description": "General collections in American English"
+              "description": "General collections in American English",
+              "children": []
             }
           ]
         },
@@ -90,7 +100,8 @@
           "children": [
             {
               "number": "091",
-              "description": "Manuscripts"
+              "description": "Manuscripts",
+              "children": []
             }
           ]
         }
@@ -106,11 +117,13 @@
           "children": [
             {
               "number": "101",
-              "description": "Theory of philosophy"
+              "description": "Theory of philosophy",
+              "children": []
             },
             {
               "number": "102",
-              "description": "Miscellany of philosophy"
+              "description": "Miscellany of philosophy",
+              "children": []
             }
           ]
         },
@@ -120,7 +133,8 @@
           "children": [
             {
               "number": "111",
-              "description": "Ontology"
+              "description": "Ontology",
+              "children": []
             }
           ]
         },
@@ -130,7 +144,8 @@
           "children": [
             {
               "number": "121",
-              "description": "Epistemology (Theory of knowledge)"
+              "description": "Epistemology (Theory of knowledge)",
+              "children": []
             }
           ]
         },
@@ -140,7 +155,8 @@
           "children": [
             {
               "number": "131",
-              "description": "Parapsychological and occult methods"
+              "description": "Parapsychological and occult methods",
+              "children": []
             }
           ]
         },
@@ -150,7 +166,8 @@
           "children": [
             {
               "number": "141",
-              "description": "Idealism and related systems"
+              "description": "Idealism and related systems",
+              "children": []
             }
           ]
         },
@@ -160,7 +177,8 @@
           "children": [
             {
               "number": "151",
-              "description": "Perception, movement, emotions & drives"
+              "description": "Perception, movement, emotions & drives",
+              "children": []
             }
           ]
         },
@@ -170,7 +188,8 @@
           "children": [
             {
               "number": "161",
-              "description": "Induction"
+              "description": "Induction",
+              "children": []
             }
           ]
         },
@@ -180,7 +199,8 @@
           "children": [
             {
               "number": "171",
-              "description": "Ethical systems"
+              "description": "Ethical systems",
+              "children": []
             }
           ]
         },
@@ -190,7 +210,8 @@
           "children": [
             {
               "number": "181",
-              "description": "Eastern philosophy"
+              "description": "Eastern philosophy",
+              "children": []
             }
           ]
         },
@@ -200,7 +221,8 @@
           "children": [
             {
               "number": "191",
-              "description": "Philosophy of United States and Canada"
+              "description": "Philosophy of United States and Canada",
+              "children": []
             }
           ]
         }
@@ -216,7 +238,8 @@
           "children": [
             {
               "number": "201",
-              "description": "Religious mythology & social theology"
+              "description": "Religious mythology & social theology",
+              "children": []
             }
           ]
         },
@@ -226,7 +249,8 @@
           "children": [
             {
               "number": "211",
-              "description": "Concepts of God"
+              "description": "Concepts of God",
+              "children": []
             }
           ]
         },
@@ -236,7 +260,8 @@
           "children": [
             {
               "number": "221",
-              "description": "Old Testament (Tanakh)"
+              "description": "Old Testament (Tanakh)",
+              "children": []
             }
           ]
         },
@@ -246,7 +271,8 @@
           "children": [
             {
               "number": "231",
-              "description": "God"
+              "description": "God",
+              "children": []
             }
           ]
         },
@@ -256,7 +282,8 @@
           "children": [
             {
               "number": "241",
-              "description": "Christian ethics"
+              "description": "Christian ethics",
+              "children": []
             }
           ]
         },
@@ -266,7 +293,8 @@
           "children": [
             {
               "number": "251",
-              "description": "Preaching (Homiletics)"
+              "description": "Preaching (Homiletics)",
+              "children": []
             }
           ]
         },
@@ -276,7 +304,8 @@
           "children": [
             {
               "number": "261",
-              "description": "Social theology and interreligious relations"
+              "description": "Social theology and interreligious relations",
+              "children": []
             }
           ]
         },
@@ -286,7 +315,8 @@
           "children": [
             {
               "number": "271",
-              "description": "Religious orders in church history"
+              "description": "Religious orders in church history",
+              "children": []
             }
           ]
         },
@@ -296,11 +326,13 @@
           "children": [
             {
               "number": "281",
-              "description": "Early church and Eastern churches"
+              "description": "Early church and Eastern churches",
+              "children": []
             },
             {
               "number": "282",
-              "description": "Roman Catholic Church"
+              "description": "Roman Catholic Church",
+              "children": []
             }
           ]
         },
@@ -310,7 +342,8 @@
           "children": [
             {
               "number": "292",
-              "description": "Classical religion (Greek & Roman religion)"
+              "description": "Classical religion (Greek & Roman religion)",
+              "children": []
             }
           ]
         }
@@ -326,7 +359,8 @@
           "children": [
             {
               "number": "301",
-              "description": "Sociology and anthropology"
+              "description": "Sociology and anthropology",
+              "children": []
             }
           ]
         },
@@ -336,7 +370,8 @@
           "children": [
             {
               "number": "314",
-              "description": "General statistics of Europe"
+              "description": "General statistics of Europe",
+              "children": []
             }
           ]
         },
@@ -346,7 +381,8 @@
           "children": [
             {
               "number": "321",
-              "description": "Systems of governments and states"
+              "description": "Systems of governments and states",
+              "children": []
             }
           ]
         },
@@ -356,7 +392,8 @@
           "children": [
             {
               "number": "331",
-              "description": "Labour economics"
+              "description": "Labour economics",
+              "children": []
             }
           ]
         },
@@ -366,7 +403,8 @@
           "children": [
             {
               "number": "341",
-              "description": "Law of nations"
+              "description": "Law of nations",
+              "children": []
             }
           ]
         },
@@ -376,7 +414,8 @@
           "children": [
             {
               "number": "351",
-              "description": "Public administration"
+              "description": "Public administration",
+              "children": []
             }
           ]
         },
@@ -386,7 +425,8 @@
           "children": [
             {
               "number": "361",
-              "description": "Social problems and services"
+              "description": "Social problems and services",
+              "children": []
             }
           ]
         },
@@ -396,11 +436,13 @@
           "children": [
             {
               "number": "371",
-              "description": "Schools and their activities; special education"
+              "description": "Schools and their activities; special education",
+              "children": []
             },
             {
               "number": "372",
-              "description": "Primary education (Elementary education)"
+              "description": "Primary education (Elementary education)",
+              "children": []
             }
           ]
         },
@@ -410,7 +452,8 @@
           "children": [
             {
               "number": "381",
-              "description": "Commerce (Trade)"
+              "description": "Commerce (Trade)",
+              "children": []
             }
           ]
         },
@@ -420,7 +463,8 @@
           "children": [
             {
               "number": "391",
-              "description": "Costume and personal appearance"
+              "description": "Costume and personal appearance",
+              "children": []
             }
           ]
         }
@@ -436,7 +480,8 @@
           "children": [
             {
               "number": "401",
-              "description": "Philosophy and theory; international languages"
+              "description": "Philosophy and theory; international languages",
+              "children": []
             }
           ]
         },
@@ -446,7 +491,8 @@
           "children": [
             {
               "number": "411",
-              "description": "Writing systems"
+              "description": "Writing systems",
+              "children": []
             }
           ]
         },
@@ -456,7 +502,8 @@
           "children": [
             {
               "number": "421",
-              "description": "Writing system, phonology, phonetics"
+              "description": "Writing system, phonology, phonetics",
+              "children": []
             }
           ]
         },
@@ -466,7 +513,8 @@
           "children": [
             {
               "number": "431",
-              "description": "Writing system, phonology, phonetics"
+              "description": "Writing system, phonology, phonetics",
+              "children": []
             }
           ]
         },
@@ -476,7 +524,8 @@
           "children": [
             {
               "number": "441",
-              "description": "Writing system, phonology, phonetics"
+              "description": "Writing system, phonology, phonetics",
+              "children": []
             }
           ]
         },
@@ -486,11 +535,13 @@
           "children": [
             {
               "number": "451",
-              "description": "Writing system, phonology, phonetics"
+              "description": "Writing system, phonology, phonetics",
+              "children": []
             },
             {
               "number": "452",
-              "description": "Etymology of standard Italian"
+              "description": "Etymology of standard Italian",
+              "children": []
             }
           ]
         },
@@ -500,7 +551,8 @@
           "children": [
             {
               "number": "461",
-              "description": "Writing system, phonology, phonetics"
+              "description": "Writing system, phonology, phonetics",
+              "children": []
             }
           ]
         },
@@ -510,7 +562,8 @@
           "children": [
             {
               "number": "471",
-              "description": "Writing system, phonology, phonetics"
+              "description": "Writing system, phonology, phonetics",
+              "children": []
             }
           ]
         },
@@ -520,7 +573,8 @@
           "children": [
             {
               "number": "481",
-              "description": "Writing system, phonology, phonetics"
+              "description": "Writing system, phonology, phonetics",
+              "children": []
             }
           ]
         },
@@ -530,7 +584,8 @@
           "children": [
             {
               "number": "491",
-              "description": "East Indo-European and Celtic languages"
+              "description": "East Indo-European and Celtic languages",
+              "children": []
             }
           ]
         }
@@ -546,7 +601,8 @@
           "children": [
             {
               "number": "501",
-              "description": "Philosophy and theory"
+              "description": "Philosophy and theory",
+              "children": []
             }
           ]
         },
@@ -556,7 +612,8 @@
           "children": [
             {
               "number": "511",
-              "description": "General principles of mathematics"
+              "description": "General principles of mathematics",
+              "children": []
             }
           ]
         },
@@ -566,7 +623,8 @@
           "children": [
             {
               "number": "521",
-              "description": "Celestial mechanics"
+              "description": "Celestial mechanics",
+              "children": []
             }
           ]
         },
@@ -576,7 +634,8 @@
           "children": [
             {
               "number": "531",
-              "description": "Classical mechanics"
+              "description": "Classical mechanics",
+              "children": []
             }
           ]
         },
@@ -586,7 +645,8 @@
           "children": [
             {
               "number": "541",
-              "description": "Physical chemistry"
+              "description": "Physical chemistry",
+              "children": []
             }
           ]
         },
@@ -596,7 +656,8 @@
           "children": [
             {
               "number": "551",
-              "description": "Geology, hydrology, meteorology"
+              "description": "Geology, hydrology, meteorology",
+              "children": []
             }
           ]
         },
@@ -606,7 +667,8 @@
           "children": [
             {
               "number": "561",
-              "description": "Palaeobotany; fossil microorganisms"
+              "description": "Palaeobotany; fossil microorganisms",
+              "children": []
             }
           ]
         },
@@ -616,7 +678,8 @@
           "children": [
             {
               "number": "571",
-              "description": "Physiology & related subjects"
+              "description": "Physiology & related subjects",
+              "children": []
             }
           ]
         },
@@ -626,7 +689,8 @@
           "children": [
             {
               "number": "581",
-              "description": "Specific topics in natural history of plants"
+              "description": "Specific topics in natural history of plants",
+              "children": []
             }
           ]
         },
@@ -636,7 +700,8 @@
           "children": [
             {
               "number": "591",
-              "description": "Specific topics in natural history of animals"
+              "description": "Specific topics in natural history of animals",
+              "children": []
             }
           ]
         }
@@ -652,7 +717,8 @@
           "children": [
             {
               "number": "601",
-              "description": "Philosophy and theory"
+              "description": "Philosophy and theory",
+              "children": []
             }
           ]
         },
@@ -662,7 +728,8 @@
           "children": [
             {
               "number": "611",
-              "description": "Human anatomy, cytology, histology"
+              "description": "Human anatomy, cytology, histology",
+              "children": []
             }
           ]
         },
@@ -672,7 +739,8 @@
           "children": [
             {
               "number": "621",
-              "description": "Applied physics"
+              "description": "Applied physics",
+              "children": []
             }
           ]
         },
@@ -682,7 +750,8 @@
           "children": [
             {
               "number": "631",
-              "description": "Techniques, equipment & materials"
+              "description": "Techniques, equipment & materials",
+              "children": []
             }
           ]
         },
@@ -692,7 +761,8 @@
           "children": [
             {
               "number": "641",
-              "description": "Food and drink"
+              "description": "Food and drink",
+              "children": []
             }
           ]
         },
@@ -702,7 +772,8 @@
           "children": [
             {
               "number": "651",
-              "description": "Office services"
+              "description": "Office services",
+              "children": []
             }
           ]
         },
@@ -712,7 +783,8 @@
           "children": [
             {
               "number": "661",
-              "description": "Technology of industrial chemicals"
+              "description": "Technology of industrial chemicals",
+              "children": []
             }
           ]
         },
@@ -722,7 +794,8 @@
           "children": [
             {
               "number": "671",
-              "description": "Metalworking & primary metal products"
+              "description": "Metalworking & primary metal products",
+              "children": []
             }
           ]
         },
@@ -732,7 +805,8 @@
           "children": [
             {
               "number": "681",
-              "description": "Precision instruments and other devices"
+              "description": "Precision instruments and other devices",
+              "children": []
             }
           ]
         },
@@ -742,7 +816,8 @@
           "children": [
             {
               "number": "691",
-              "description": "Building materials"
+              "description": "Building materials",
+              "children": []
             }
           ]
         }
@@ -758,7 +833,8 @@
           "children": [
             {
               "number": "701",
-              "description": "Philosophy of fine & decorative arts"
+              "description": "Philosophy of fine & decorative arts",
+              "children": []
             }
           ]
         },
@@ -768,7 +844,8 @@
           "children": [
             {
               "number": "711",
-              "description": "planning (Civic art)"
+              "description": "planning (Civic art)",
+              "children": []
             }
           ]
         },
@@ -778,7 +855,8 @@
           "children": [
             {
               "number": "721",
-              "description": "Architectural materials and structure"
+              "description": "Architectural materials and structure",
+              "children": []
             }
           ]
         },
@@ -788,7 +866,8 @@
           "children": [
             {
               "number": "731",
-              "description": "Processes, forms, subjects of sculpture"
+              "description": "Processes, forms, subjects of sculpture",
+              "children": []
             }
           ]
         },
@@ -798,7 +877,8 @@
           "children": [
             {
               "number": "741",
-              "description": "Drawing and drawings"
+              "description": "Drawing and drawings",
+              "children": []
             }
           ]
         },
@@ -808,7 +888,8 @@
           "children": [
             {
               "number": "751",
-              "description": "Techniques, equipment, materials & forms"
+              "description": "Techniques, equipment, materials & forms",
+              "children": []
             }
           ]
         },
@@ -818,7 +899,8 @@
           "children": [
             {
               "number": "761",
-              "description": "Relief processes (Block printing)"
+              "description": "Relief processes (Block printing)",
+              "children": []
             }
           ]
         },
@@ -828,7 +910,8 @@
           "children": [
             {
               "number": "771",
-              "description": "Techniques, equipment & materials"
+              "description": "Techniques, equipment & materials",
+              "children": []
             }
           ]
         },
@@ -838,7 +921,8 @@
           "children": [
             {
               "number": "781",
-              "description": "General principles and musical forms"
+              "description": "General principles and musical forms",
+              "children": []
             }
           ]
         },
@@ -848,7 +932,8 @@
           "children": [
             {
               "number": "791",
-              "description": "Public performances"
+              "description": "Public performances",
+              "children": []
             }
           ]
         }
@@ -864,7 +949,8 @@
           "children": [
             {
               "number": "801",
-              "description": "Philosophy and theory"
+              "description": "Philosophy and theory",
+              "children": []
             }
           ]
         },
@@ -874,7 +960,8 @@
           "children": [
             {
               "number": "811",
-              "description": "American poetry in English"
+              "description": "American poetry in English",
+              "children": []
             }
           ]
         },
@@ -884,7 +971,8 @@
           "children": [
             {
               "number": "821",
-              "description": "English poetry"
+              "description": "English poetry",
+              "children": []
             }
           ]
         },
@@ -894,7 +982,8 @@
           "children": [
             {
               "number": "831",
-              "description": "German poetry"
+              "description": "German poetry",
+              "children": []
             }
           ]
         },
@@ -904,7 +993,8 @@
           "children": [
             {
               "number": "841",
-              "description": "French poetry"
+              "description": "French poetry",
+              "children": []
             }
           ]
         },
@@ -914,7 +1004,8 @@
           "children": [
             {
               "number": "851",
-              "description": "Italian poetry"
+              "description": "Italian poetry",
+              "children": []
             }
           ]
         },
@@ -924,7 +1015,8 @@
           "children": [
             {
               "number": "861",
-              "description": "Spanish poetry"
+              "description": "Spanish poetry",
+              "children": []
             }
           ]
         },
@@ -934,7 +1026,8 @@
           "children": [
             {
               "number": "871",
-              "description": "Latin poetry"
+              "description": "Latin poetry",
+              "children": []
             }
           ]
         },
@@ -944,7 +1037,8 @@
           "children": [
             {
               "number": "881",
-              "description": "Classical Greek poetry"
+              "description": "Classical Greek poetry",
+              "children": []
             }
           ]
         },
@@ -954,7 +1048,8 @@
           "children": [
             {
               "number": "891",
-              "description": "East Indo-European and Celtic literatures"
+              "description": "East Indo-European and Celtic literatures",
+              "children": []
             }
           ]
         }
@@ -970,7 +1065,8 @@
           "children": [
             {
               "number": "901",
-              "description": "Philosophy and theory of history"
+              "description": "Philosophy and theory of history",
+              "children": []
             }
           ]
         },
@@ -980,7 +1076,8 @@
           "children": [
             {
               "number": "911",
-              "description": "Historical geography"
+              "description": "Historical geography",
+              "children": []
             }
           ]
         },
@@ -990,7 +1087,8 @@
           "children": [
             {
               "number": "929",
-              "description": "Genealogy, names & insignia"
+              "description": "Genealogy, names & insignia",
+              "children": []
             }
           ]
         },
@@ -1000,7 +1098,8 @@
           "children": [
             {
               "number": "931",
-              "description": "China to 420"
+              "description": "China to 420",
+              "children": []
             }
           ]
         },
@@ -1010,7 +1109,8 @@
           "children": [
             {
               "number": "941",
-              "description": "British Isles"
+              "description": "British Isles",
+              "children": []
             }
           ]
         },
@@ -1020,7 +1120,8 @@
           "children": [
             {
               "number": "951",
-              "description": "China and adjacent areas"
+              "description": "China and adjacent areas",
+              "children": []
             }
           ]
         },
@@ -1030,7 +1131,8 @@
           "children": [
             {
               "number": "961",
-              "description": "Tunisia and Libya"
+              "description": "Tunisia and Libya",
+              "children": []
             }
           ]
         },
@@ -1040,7 +1142,8 @@
           "children": [
             {
               "number": "971",
-              "description": "Canada"
+              "description": "Canada",
+              "children": []
             }
           ]
         },
@@ -1050,7 +1153,8 @@
           "children": [
             {
               "number": "981",
-              "description": "Brazil"
+              "description": "Brazil",
+              "children": []
             }
           ]
         },
@@ -1060,7 +1164,8 @@
           "children": [
             {
               "number": "994",
-              "description": "Australia"
+              "description": "Australia",
+              "children": []
             }
           ]
         }

@@ -2,8 +2,103 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Styles
+{
+    <link href="@Url.Content("~/Content/Replacing.css")" rel="stylesheet" type="text/css" />
+}
 
-<h1>
-    It works
-</h1>
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/Finding.js")"></script>
+}
+
+<script>
+    window.onload = (event) => {
+        const currTemplate = document.getElementById("start-page").content.cloneNode(true);
+        currTemplate.getElementById("BtnStartGame").onclick = (event) => {
+            showGamePage();
+        };
+        document.getElementById("finding").appendChild(currTemplate);
+    };
+</script>
+
+
+<section id="finding" class="finding">
+    <!-- Loaded template goes here -->
+</section>
+
+<template id="start-page">
+    <div class="start-page">
+        <div class="card">
+            <h3 class="heading">Welcome to the dewey decimal finding training.</h3>
+            <p class="sub-heading">In this challenge, you will be tasked with finding the correct call number associated with a description at each level of detail in the dewey decimal system</p>
+            <p class="sub-heading">When you are ready, select start</p>
+            <button id="BtnStartGame" class="btn-primary">Start</button>
+        </div>
+    </div>
+</template>
+
+<template id="game-page">
+    <div class="game-page">
+        <i class="fa fa-arrow-left btn-back" onclick="showStartPage()"></i>
+        <div class="container">
+            <div id="timer" class="timer">
+                <span id="minutes"></span>
+                <span>:</span>
+                <span id="seconds"></span>
+                <span>:</span>
+                <span id="miliseconds"></span>
+            </div>
+            <p class="sub-heading">Incorrect selection</p>
+            <div class="progress-container">
+                <div id="ProgressBar" class="progress-bar"></div>
+            </div>
+            <div class="question-container main">
+                <h4 id="question-title" class="title"></h4>
+            </div>
+            <ul id="answers" class="answers">
+            </ul>
+        </div>
+    </div>
+</template>
+
+<template id="success-page">
+    <canvas class="confetti" id="canvas"></canvas>
+    <div class="success-page">
+        <div class="card">
+            <h3 class="heading">Well done you did it!</h3>
+            <div id="timer" class="timer heading">
+                <span id="minutes"></span>
+                <span>:</span>
+                <span id="seconds"></span>
+                <span>:</span>
+                <span id="miliseconds"></span>
+            </div>
+            <div class="score">
+                <h4 id="NumCorrect"></h4>
+                <h4> Your final score was</h4>
+                <h3 id="Score"></h3>
+            </div>
+            <div id="SubmitTime" class="submit-time-container">
+                <p class="sub-heading">Submit your time and score and see how you compare to others</p>
+                <label id="NameLbl" for="Name" class="sub-heading">Enter your name</label>
+                <input id="Name" type="text" class="input" />
+                <button id="BtnSubmitScore" class="btn-primary">Submit</button>
+            </div>
+            <div id="DisplayTime" class="display-time-container" style="display: none">
+                <p class="sub-heading">You ranked:</p>
+                <p id="Rank" class="heading">
+                    <!-- Rank goes here -->
+                </p>
+            </div>
+            <div id="ScoreRank" class="score-rank-container" style="display: none">
+                <p class="sub-heading">You scored:</p>
+                <p id="ScoreCorrect" class="heading">
+                    <!-- Num correct goes here -->
+                </p>
+            </div>
+            <button id="BtnStartGame" class="btn-primary">Retry</button>
+        </div>
+    </div>
+</template>
 
